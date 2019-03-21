@@ -1,6 +1,6 @@
 
 # ReactJS
-## Atualização: 14 de fevereiro de 2019 - 19:32
+## Atualização: 21 de março de 2019 - 12:49 - done
 ## Criação: 12 de fevereiro de 2019
 ## Prática : @douglasabnovato
 
@@ -24,5 +24,12 @@
 ### Aula 6 : Armazenamento no estado
 
 ### Aula 7 : Listando produtos
+
+### Aula 8 : Páginas anterior / próxima
+
+### Aula 9 : Configurando Navegação
+1. `yarn add react-router-dom` : trabalhando com rotas
+
+### Aula 10 : Navegando para o detalhe
 
 ** :. Do curso ReactJS da Rocketseat. Por Diego Fernandes : https://rocketseat.com.br **

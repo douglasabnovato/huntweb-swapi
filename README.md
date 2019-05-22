@@ -59,5 +59,7 @@
 
 ### Aula 10 : Navegando para o detalhe
 
+- Listando o detalhe de cada produto
+
 **Do curso ReactJS da Rocketseat.**
 **Por Diego Fernandes : https://rocketseat.com.br**

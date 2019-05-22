@@ -25,9 +25,19 @@
 
 ### Aula 3 : O que são componentes ?
 
-### Aula 4 : Criando Headers ?
+- conceito de componentização
+- react
+- react-dom 
+- método do componente: render
+
+### Aula 4 : Criando Header ?
+
+- na pasta src, na pasta componentes, na pasta Header, então criar todos arquivos desse componente: index.js, styles.css.
 
 ### Aula 5 : Buscando produtos da API 
+
+- acessar API nodejs-api: essa API fornece o dados dos produtos.
+- biblioteca axios: `yarn add axios`
 
 ### Aula 6 : Armazenamento no estado
 

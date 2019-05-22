@@ -42,7 +42,12 @@
 
 ### Aula 6 : Armazenamento no estado
 
+- objeto `estado`
+- trabalhar com variável estado
+
 ### Aula 7 : Listando produtos
+
+- estilizando a exibição dos produtos.
 
 ### Aula 8 : Páginas anterior / próxima
 

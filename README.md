@@ -38,6 +38,7 @@
 
 - acessar API nodejs-api: essa API fornece o dados dos produtos.
 - biblioteca axios: `yarn add axios`
+- Insomnia: gestão de API
 
 ### Aula 6 : Armazenamento no estado
 

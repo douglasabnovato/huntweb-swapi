@@ -40,4 +40,5 @@
 
 ### Aula 10 : Navegando para o detalhe
 
-** :. Do curso ReactJS da Rocketseat. Por Diego Fernandes : https://rocketseat.com.br **
+**Do curso ReactJS da Rocketseat.**
+**Por Diego Fernandes : https://rocketseat.com.br**

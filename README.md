@@ -51,6 +51,9 @@
 
 ### Aula 8 : Páginas anterior / próxima
 
+- listar os detalhes dos produtos
+- fazer listagem das páginas 
+
 ### Aula 9 : Configurando Navegação
 1. `yarn add react-router-dom` : trabalhando com rotas
 

@@ -1,8 +1,16 @@
 
 # ReactJS
-## Atualização: 21 de março de 2019 - 12:49 - done
+
+## Atualização: 22 de maio de 2019 - 16:03 - done
 ## Criação: 12 de fevereiro de 2019
 ## Prática : @douglasabnovato
+
+![Rocketseat](/images/logo-rocketseat.png)
+![Git](/images/logo-git.png)
+![GitHub](/images/logo-github.png)
+![React Native](/images/logo-react-native.png)
+![HTML-CSS-JS](/images/logo-html-css-js.jpeg)
+![VSCode](/images/logo-VSCode.png)
 
 ### Aula 1 : O que é ReactJS ?
 

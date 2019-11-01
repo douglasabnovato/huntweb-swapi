@@ -1,7 +1,7 @@
 
 # ReactJS
 
-## Atualização: 22 de maio de 2019 - 16:03 - done
+## Atualização: 01 de novembro de 2019 - 13:34
 ## Criação: 12 de fevereiro de 2019
 ## Prática : @douglasabnovato
 
@@ -13,6 +13,9 @@
 ![VSCode](/images/logo-VSCode.png)
 
 ### Aula 1 : O que é ReactJS ?
+- ReactJS construir o Frontend
+- uma biblioteca para desenvolver em javascript
+
 
 ### Aula 2 : Criando Projeto
 1. `node -v`

@@ -61,5 +61,5 @@
 
 - Listando o detalhe de cada produto
 
-**Do curso ReactJS da Rocketseat.**
-**Por Diego Fernandes : https://rocketseat.com.br**
+;. Do curso `ReactJS` da Rocketseat.<br>
+Por Diego Fernandes : `https://rocketseat.com.br`

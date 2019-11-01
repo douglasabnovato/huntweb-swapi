@@ -8,7 +8,7 @@
 ![Rocketseat](/images/logo-rocketseat.png)
 ![Git](/images/logo-git.png)
 ![GitHub](/images/logo-github.png)
-![React Native](/images/logo-react-native.png)
+![React JS](/images/logo-reactjs.jpg)
 ![HTML-CSS-JS](/images/logo-html-css-js.jpeg)
 ![VSCode](/images/logo-VSCode.png)
 

@@ -70,6 +70,13 @@
 
 - Listando o detalhe de cada produto
 
+Encerramos o projeto tendo realizado:
+- componentização
+- roteamento
+- ciclos de vida
+- utilização de API
+- estado
+
 :. Do curso `ReactJS` da Station Rocketseat - Starter. <br>
 Por Diego Fernandes : https://station.rocketseat.com.br/courses/starter
 >>>>>>> 4c08462c39b240a7d566317e95682f3ce1b27512

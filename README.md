@@ -13,11 +13,16 @@
 ![VSCode](/images/logo-VSCode.png)
 
 ### Aula 1 : O que é ReactJS ?
+
 - ReactJS construir o Frontend
 - uma biblioteca para desenvolver em javascript
-
+- Acessar API Rest
+- Roteamento
+- Componentes
+- Estados e Propriedades
 
 ### Aula 2 : Criando Projeto
+
 1. `node -v`
 2. `npm -v`
 3. `yarn -v`
@@ -58,6 +63,7 @@
 - fazer listagem das páginas 
 
 ### Aula 9 : Configurando Navegação
+
 1. `yarn add react-router-dom` : trabalhando com rotas
 
 ### Aula 10 : Navegando para o detalhe

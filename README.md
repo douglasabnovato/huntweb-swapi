@@ -40,7 +40,9 @@
 
 #### 4. Criando Header ?
 
-- na pasta src, na pasta componentes, na pasta Header, então criar todos arquivos desse componente: index.js, styles.css.
+- [x] 4.1. na pasta src, na pasta componentes, na pasta Header, então criar todos arquivos desse componente: index.js, .
+- [x] 4.2. Estilização do component Header: styles.css
+- [x] 4.3. Estilização global 
 
 #### 5. Buscando produtos da API 
 

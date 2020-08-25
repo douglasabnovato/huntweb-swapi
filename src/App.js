@@ -5,7 +5,7 @@ import "./styles.css";
 
 import Header from "./components/Header";
 
-
+//stately component
 const App = () => (
   <div className="App">
     <Header/>

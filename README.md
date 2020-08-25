@@ -1,7 +1,7 @@
 
 ## ReactJS
 
-#### Atualização: 01 de novembro de 2019 - 13:34
+#### Atualização: 25 de agosto de 2020 - Done
 #### Criação: 12 de fevereiro de 2019
 #### Prática : @douglasabnovato
 
@@ -58,12 +58,13 @@
 
 #### 6. Armazenamento no estado
 
-- objeto `estado`
-- trabalhar com variável estado
+- [x] 6.1. state, estado, acredito ser o principal conceito do reactjs
+- [x] 6.2. o react trabalha com variável state e não variável normal. 
+- [x] 6.3. o `estado` trabalha em manipular a variável objeto
 
 #### 7. Listando produtos
 
-- estilizando a exibição dos produtos.
+- [x] 7.1. estilizar a exibição dos produtos
 
 #### 8. Páginas anterior / próxima
 

@@ -1,12 +1,12 @@
 .product-list{
     max-width: 700px;
-    margin: 20px auto 4;
+    margin: 20px auto 0;
     padding: 0 20px;
 }
 
 .product-list article{
     background: #FFF;
-    border: 1px solid #000;
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
@@ -32,7 +32,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.2s;
+    transition: all 0.3s;
 }
 
 .product-list article a:hover{

@@ -68,24 +68,22 @@
 
 #### 8. Páginas anterior / próxima
 
-- listar os detalhes dos produtos
-- fazer listagem das páginas 
+- [x] 8.1. fazer a paginação dos produtos
+- [x] 8.2. criar os botões: anterior e próximo
+- [x] 8.3. estilização dos botões
+- [x] 8.4. chamar um método toda vez que o usuário clicar no botão
 
 #### 9. Configurando Navegação
 
-1. `yarn add react-router-dom` : trabalhando com rotas
+- [x] 9.1. `yarn add react-router-dom` : trabalhando com rotas
 
 #### 10. Navegando para o detalhe
 
-- Listando o detalhe de cada produto
+- [x] 10.1. Listando o detalhe de cada produto
 
-Encerramos o projeto tendo realizado:
-- componentização
-- roteamento
-- ciclos de vida
-- utilização de API
-- estado
+#### Encerramos 
 
-:. Do curso `ReactJS` da Station Rocketseat - Starter. <br>
-Por Diego Fernandes : https://station.rocketseat.com.br/courses/starter
->>>>>>> 4c08462c39b240a7d566317e95682f3ce1b27512
+Componentização, roteamento, ciclos de vida, utilização de API Rest, estado. 
+
+Por @douglasabnovato <br/>
+:. De Diego Fernandes [`ReactJS` - Rocketseat - Starter](https://station.rocketseat.com.br/courses/starter)

@@ -46,9 +46,13 @@
 
 #### 5. Buscando produtos da API 
 
-- acessar API nodejs-api: essa API fornece o dados dos produtos.
-- biblioteca axios: `yarn add axios`
-- Insomnia: gestão de API
+- [x] 5.1. acessar API Rest feita em nodejs e exibir na nossa tela em ReactJS.
+- [x] 5.2. fiz essa api no repositório nodejs-api
+- [x] 5.3.1. essa API Rest fornece o dados dos produtos: id, title, description, url, ( createdAt, não será exibido) 
+- [x] 5.3.2. informações de paginação: docs, total, limit, page, pages
+- [x] 5.4. biblioteca axios: `yarn add axios`: permite acessar um endereço externo: pasta services/api.js
+- [x] 5.5. A URL da nossa API: `http://rocketseat-node.herokuapp.com/api`
+- [x] 5.6. Insomnia: usar essa aplicação para gerir os dados da api
 
 #### 6. Armazenamento no estado
 

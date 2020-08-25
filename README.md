@@ -33,10 +33,10 @@
 
 #### 3. O que são componentes ?
 
-- conceito de componentização
-- react
-- react-dom 
-- método do componente: render
+- [x] 3.1. conceito de componentização
+- [x] 3.2. react
+- [x] 3.3. react-dom 
+- [x] 3.4. método do componente: render
 
 #### 4. Criando Header ?
 

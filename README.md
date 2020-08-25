@@ -53,6 +53,8 @@
 - [x] 5.4. biblioteca axios: `yarn add axios`: permite acessar um endereço externo: pasta services/api.js
 - [x] 5.5. A URL da nossa API: `http://rocketseat-node.herokuapp.com/api`
 - [x] 5.6. Insomnia: usar essa aplicação para gerir os dados da api
+- [x] 5.7. Na api, os produtos estão dentro da informação `docs` 
+- [x] 5.8. A busca dessas informações na api será realizada pelo main/index.js.
 
 #### 6. Armazenamento no estado
 

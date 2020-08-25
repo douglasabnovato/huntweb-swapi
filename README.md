@@ -82,7 +82,13 @@
 
 #### 10. Navegando para o detalhe
 
-- [x] 10.1. Listando o detalhe de cada produto
+- [x] 10.1. Buscar os dados dos produtos da API Rest
+- [x] 10.2. Exibir em tela na pages products
+- [x] 10.3.1. state
+- [x] 10.3.2. async await
+- [x] 10.3.3. props 
+- [x] 10.3.4. componentdidmount
+- [x] 10.4. Estilização da product info
 
 #### Encerramos 
 

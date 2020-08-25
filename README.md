@@ -73,9 +73,12 @@
 - [x] 8.3. estilização dos botões
 - [x] 8.4. chamar um método toda vez que o usuário clicar no botão
 
-#### 9. Configurando Navegação
+#### 9. Configurando Navegação (Roteamento)
 
-- [x] 9.1. `yarn add react-router-dom` : trabalhando com rotas
+- [x] 9.1. Usar rotas para a navegação: `yarn add react-router-dom`
+- [x] 9.2. Componente de detalhes dos produtos: browserrouter, switch, route 
+- [x] 9.3. Redirecionar o usuário conforme cada rota
+- [x] 9.4. Componente Link para cada um dos botões
 
 #### 10. Navegando para o detalhe
 

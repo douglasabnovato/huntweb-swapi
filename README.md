@@ -1,7 +1,5 @@
 
-### Starter Reactjs
-
-### Hunt Went
+### Huntweb
 
 ![huntweb](/images/hunt-web.jpg)
 

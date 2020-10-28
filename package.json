@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "and": "^0.0.3",
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "global": "^4.4.0",
     "netlify-cli": "^2.67.0",
     "react": "^16.8.1",

@@ -1,9 +1,9 @@
 <h1 align="center">
-    <img alt="Huntweb" title="#Huntweb" src="./images/hunt-web.jpg" />
+    <img alt="Huntweb exibi uma lista de produtos" title="#Huntweb" src="./images/hunt-web.jpg" />
 </h1>
 
 <h4 align="center"> 
-	🚧 Huntweb  🚀 em construção... 🚧
+	🚧 Huntweb  🚀
 </h4> 
 
 <p align="center">
@@ -16,7 +16,8 @@
 
 ## 💻 Sobre o projeto
 
-♻️ Huntweb
+♻️ Huntweb é um produto que consome a api e exibe uma lista de produtos.
+Permite acessar uma introdução de cada item ao clicá-lo.
 
 #### 1. O que é ReactJS ?
 
@@ -96,6 +97,19 @@
 - [x] 10.3.4. componentdidmount
 - [x] 10.4. Estilização da product info
 
+---
+
+### Próximo passo para frontend
+
+- [ ] 0. adaptar para uma api pública
+- [ ] 1. responsividade
+- [ ] 2. acessibilidade
+- [ ] 3. modo dark / light
+- [ ] 4. variação de cores
+- [ ] 5. hospedar aplicação
+
+---
+
 #### Encerramos 
 
 Componentização, roteamento, ciclos de vida, utilização de API Rest, estado. 
@@ -107,7 +121,7 @@ Uma aplicação web que requisita informações de uma API
 ### Web - v1.0
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="huntweb" title="#huntweb" src="./images/hunt-web.jpg" width="400px">
+  <img alt="Huntweb exibi uma lista de produtos" title="#huntweb" src="./images/hunt-web.jpg" width="400px">
 </p> 
 
 ## 🛠 Tecnologias
@@ -187,5 +201,3 @@ Feito com ❤️ por Douglas A B Novato 👋🏽 [Entre em contato!](https://www
 [css]: https://developer.mozilla.org/en-US/docs/Web/CSS 
 [html]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript 
-
-Fonte [Rocketseat - Starter](https://station.rocketseat.com.br/courses/starter) 

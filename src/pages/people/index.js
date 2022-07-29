@@ -4,12 +4,12 @@ import "./styles.css";
 
 export default class Product extends Component {
   state = {
-    people: {},
+    product: {},
   };
 
   async componentDidMount() {
     const { id } = this.props.match.params;
-    const response = await api.get(`/products/${id}`);
+    const response = await api.get(`/people/${id}`);
     this.setState({ product: response.data });
   }
 
@@ -18,8 +18,8 @@ export default class Product extends Component {
 
     return (
       <div className="product-info">
-        <h1>{product.title}</h1>
-        <p>{product.description}</p>
+        <h1>{product.name}</h1>
+        <p>{product.homeworld}</p>
         <p>
           URL:<a href="{product.url}">{product.url}</a>
         </p>

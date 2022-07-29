@@ -1,18 +1,10 @@
-<h1 align="center">
-    <img alt="Huntweb exibi uma lista de produtos" title="#Huntweb" src="./images/hunt-web.jpg" />
-</h1>
-
 <h4 align="center"> 
 	🚧 Huntweb Starwars 🚀
-</h4> 
+</h4>
 
-<p align="center">
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/douglasabnovato/huntweb?color=%2304D361">
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/douglasabnovato/huntweb">
-  <a href="https://www.twitter.com/douglasabnovato/">
-    <img alt="Siga no Twitter" src="https://img.shields.io/twitter/url?url=https%3A%2F%2Fgithub.com%douglasabnovato%2Fhuntweb">
-  </a>
-</p>
+<h1 align="center">
+    <img alt="Huntweb exibi uma lista de produtos" title="#Huntweb" src="./.github/hunt-web.jpg" />
+</h1>
 
 ## 💻 Sobre o projeto
 
@@ -141,6 +133,8 @@ Uma aplicação web que requisita informações de uma API
 </p> 
 
 ### Web - v1.0
+
+- mudança da api para `http://rocketseat-node.herokuapp.com/api`
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb exibi uma lista de produtos" title="#huntweb" src="./.github/hunt-web.jpg" width="400px">

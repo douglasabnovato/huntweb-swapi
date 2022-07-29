@@ -33,7 +33,7 @@ export default class Main extends Component{
         const {page,productInfo} = this.state;
         if(page === productInfo.pages) return;
         const pageNumber = page + 1;
-        this.loadProducts(pageNumber);
+        this.loadProducts(pageNumber);  
     }
 
     render(){
@@ -43,10 +43,10 @@ export default class Main extends Component{
         return (
             <div className ="product-list">
                 {products.map(product => (
-                    <article key={product._id}>
-                        <strong>{product.title}</strong>
-                        <p>{product.description}</p>
-                        <Link to={`/products/${product._id}`}>Acessar</Link>
+                    <article key={product.created}>
+                        <strong>{product.name}</strong>
+                        <p>{product.homeworld}</p>
+                        <Link to={`/products/${product.created}`}>Acessar</Link>
                     </article>
                 ))}
                 <div className="actions">

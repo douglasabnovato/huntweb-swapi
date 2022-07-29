@@ -1,5 +1,5 @@
 <h4 align="center"> 
-	🚧 Huntweb Starwars 🚀
+	🚧 Huntweb Swapi 🚀
 </h4>
 
 <h1 align="center">
@@ -13,9 +13,9 @@
 
 ## 💻 Sobre o projeto
 
-♻️ Huntweb Starwars é uma versão atualizada para a api do star wars para listar informações. Permite acessar uma introdução de cada item ao clicá-lo.
+♻️ Huntweb Swapi é uma versão atualizada para a api do star wars para listar informações. Permite acessar uma introdução de cada item ao clicá-lo.
 
-#### Nova Api Starwars
+#### Nova Api Swapi
 
 - [swapi](https://swapi.dev/), [swapi infos](https://swapi.dev/about), [swapi documentation](https://swapi.dev/documentation) 
 - `https://swapi.dev/api/`

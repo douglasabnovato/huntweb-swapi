@@ -3,7 +3,7 @@
 </h4>
 
 <h1 align="center">
-    <img alt="Huntweb exibi uma lista de produtos" title="#Huntweb" src="./.github/hunt-web.jpg" />
+    <img alt="Huntweb exibi uma lista de produtos" title="#Huntweb" src="./.github/huntweb-swapi.jpg" />
 </h1>
 
 ## 🚧 Construíndo

@@ -9,6 +9,7 @@
 ## 🚧 Construíndo
 
 - A navegação para detalhes de um item clicado não está acontecendo corretamente.
+- Melhorar o favicon
 
 ## 💻 Sobre o projeto
 

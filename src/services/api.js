@@ -1,5 +1,7 @@
 import axios from "axios";
 
-const api = axios.create({baseURL : 'http://rocketseat-node.herokuapp.com/api'});
+const api = axios.create({
+  baseURL: "https://swapi.dev/api/",
+});
 
 export default api;

@@ -3,7 +3,7 @@
 </h1>
 
 <h4 align="center"> 
-	🚧 Huntweb  🚀
+	🚧 Huntweb Starwars 🚀
 </h4> 
 
 <p align="center">
@@ -16,8 +16,7 @@
 
 ## 💻 Sobre o projeto
 
-♻️ Huntweb é um produto que consome a api e exibe uma lista de produtos.
-Permite acessar uma introdução de cada item ao clicá-lo.
+♻️ Huntweb Starwars é uma versão atualizada para a api do star wars para listar informações. Permite acessar uma introdução de cada item ao clicá-lo.
 
 #### 1. O que é ReactJS ?
 
@@ -101,7 +100,6 @@ Permite acessar uma introdução de cada item ao clicá-lo.
 
 ### Próximo passo para frontend
 
-- [ ] 0. adaptar para uma api pública
 - [ ] 1. responsividade
 - [ ] 2. acessibilidade
 - [ ] 3. modo dark / light
@@ -118,10 +116,18 @@ Componentização, roteamento, ciclos de vida, utilização de API Rest, estado.
 
 Uma aplicação web que requisita informações de uma API
 
+### Web - v2.0
+
+- mudança da api para `https://swapi.dev.api`
+
+<p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
+  <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/hunt-web.jpg" width="400px">
+</p> 
+
 ### Web - v1.0
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Huntweb exibi uma lista de produtos" title="#huntweb" src="./images/hunt-web.jpg" width="400px">
+  <img alt="Huntweb exibi uma lista de produtos" title="#huntweb" src="./.github/hunt-web.jpg" width="400px">
 </p> 
 
 ## 🛠 Tecnologias
@@ -187,17 +193,9 @@ Feito com ❤️ por Douglas A B Novato 👋🏽 [Entre em contato!](https://www
 [git]: https://git-scm.com/doc
 [github]: https://docs.github.com/en
 [nodejs]: https://nodejs.org/
-[typescript]: https://www.typescriptlang.org/
-[expo]: https://expo.io/
 [reactjs]: https://reactjs.org
-[rn]: https://facebook.github.io/react-native/
 [yarn]: https://yarnpkg.com/
 [vscode]: https://code.visualstudio.com/
-[vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
-[license]: https://opensource.org/licenses/MIT
-[vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-[prettier]: https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
-[rs]: https://rocketseat.com.br 
 [css]: https://developer.mozilla.org/en-US/docs/Web/CSS 
 [html]: https://developer.mozilla.org/en-US/docs/Web/HTML
 [javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript 

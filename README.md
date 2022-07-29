@@ -12,6 +12,7 @@
 
 #### Nova Api Starwars
 
+- [swapi](https://swapi.dev/), [swapi infos](https://swapi.dev/about), [swapi documentation](https://swapi.dev/documentation) 
 - `https://swapi.dev/api/`
 - rotas das informações da swapi
 ````json

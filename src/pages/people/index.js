@@ -1,29 +1,23 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 import "./styles.css";
 
-export default class Product extends Component {
-  state = {
-    product: {},
-  };
+export default function Product() {
+  const [product, setProduct] = useState({});
 
-  async componentDidMount() {
+  useEffect(() => {
     const { id } = this.props.match.params;
-    const response = await api.get(`/people/${id}`);
-    this.setState({ product: response.data });
-  }
-
-  render() {
-    const { product } = this.state;
-
-    return (
-      <div className="product-info">
-        <h1>{product.name}</h1>
-        <p>{product.homeworld}</p>
-        <p>
-          URL:<a href="{product.url}">{product.url}</a>
-        </p>
-      </div>
-    );
-  }
+    const response = api.get(`/people/${id}`);
+    setProduct({ product: response.data });
+  }, []);
+ 
+  return (
+    <div className="product-info">
+      <h1>{product.name}</h1>
+      <p>{product.homeworld}</p>
+      <p>
+        URL:<a href="{product.url}">{product.url}</a>
+      </p>
+    </div>
+  );
 }

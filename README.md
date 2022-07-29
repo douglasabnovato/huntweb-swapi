@@ -6,6 +6,10 @@
     <img alt="Huntweb exibi uma lista de produtos" title="#Huntweb" src="./.github/hunt-web.jpg" />
 </h1>
 
+## 🚧 Construíndo
+
+- A navegação para detalhes de um item clicado não está acontecendo corretamente.
+
 ## 💻 Sobre o projeto
 
 ♻️ Huntweb Starwars é uma versão atualizada para a api do star wars para listar informações. Permite acessar uma introdução de cada item ao clicá-lo.

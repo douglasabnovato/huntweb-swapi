@@ -1,6 +1,6 @@
 {
-  "name": "huntweb",
-  "version": "0.1.0",
+  "name": "huntweb-swapi",
+  "version": "2.1.0",
   "private": true,
   "dependencies": {
     "and": "^0.0.3",

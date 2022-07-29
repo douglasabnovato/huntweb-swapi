@@ -134,7 +134,7 @@ Uma aplicação web que requisita informações de uma API
 - mudança da api para `https://swapi.dev.api`
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
-  <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/hunt-web.jpg" width="400px">
+  <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi.jpg" width="400px">
 </p> 
 
 ### Web - v1.0

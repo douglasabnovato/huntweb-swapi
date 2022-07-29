@@ -4,7 +4,7 @@ import "./styles.css";
 
 export default class Product extends Component {
   state = {
-    product: {},
+    people: {},
   };
 
   async componentDidMount() {

@@ -18,6 +18,22 @@
 
 ♻️ Huntweb Starwars é uma versão atualizada para a api do star wars para listar informações. Permite acessar uma introdução de cada item ao clicá-lo.
 
+#### Nova Api Starwars
+
+- `https://swapi.dev/api/`
+- rotas das informações da swapi
+````json
+{
+    "people": "https://swapi.dev/api/people/", 
+    "films": "https://swapi.dev/api/films/", 
+    "vehicles": "https://swapi.dev/api/vehicles/",
+    "planets": "https://swapi.dev/api/planets/",  
+    "species": "https://swapi.dev/api/species/", 
+    "starships": "https://swapi.dev/api/starships/"
+}
+````
+- utilizar informações no arquivo json: planets, species, starships
+
 #### 1. O que é ReactJS ?
 
 - [x] 1.1. ReactJS construir o Frontend

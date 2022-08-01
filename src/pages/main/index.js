@@ -4,22 +4,22 @@ import { Link } from "react-router-dom";
 import "./style.css";
 
 export default function Main() {
-  const [products, setProducts] = useState([]);
-  const [productInfo, setProductInfo] = useState({});
+  const [personas, setPersonas] = useState([]);
+  const [personaInfo, setPersonaInfo] = useState({});
   const [page, setPage] = useState(1);
 
   useEffect(() => {
 
-    loadProducts()
+    loadPersonas()
 
   }, []); 
 
-  async function loadProducts(page){
+  async function loadPersonas(page){
 
     async function fetchPeople(){
         let response = await fetch("https://swapi.dev/api/people/")
         let data = await response.json()
-        setProducts(data.results)
+        setPersonas(data.results)
     }
 
     fetchPeople()
@@ -28,28 +28,28 @@ export default function Main() {
 
   function prevPage() {
     const [pagePrev, setPagePrev] = useState(page);
-    const [productInfoPrev, setProductInfoPrev] = useState(productInfo);
+    const [personaInfoPrev, setPersonaInfoPrev] = useState(personaInfo);
     if (pagePrev === 1) return;
     const pageNumber = pagePrev - 1;
-    loadProducts(pageNumber);
+    loadPersonas(pageNumber);
   }
 
   function nextPage() {
     const [pageNext, setPageNext] = useState(page);
-    const [productInfoNext, setProductInfoNext] = useState(productInfo);
-    if (pageNext === productInfoNext.pages) return;
+    const [personaInfoNext, setPersonaInfoNext] = useState(personaInfo);
+    if (pageNext === personaInfoNext.pages) return;
     const pageNumber = pageNext + 1;
-    loadProducts(pageNumber);
+    loadPersonas(pageNumber);
   }
 
   return (
-    <div className="product-list">
-      {products.map((product) => (
+    <div className="main-list">
+      {personas.map((persona) => (
 
-        <article key={product.created}>
-          <strong>{product.name}</strong>
-          <p>{product.homeworld}</p>
-          <Link to={`/people/${product.created}`}>Acessar</Link>
+        <article key={persona.created}>
+          <strong>{persona.name}</strong>
+          <p>{persona.homeworld}</p>
+          <Link to={`/persona/${persona.created}`}>Acessar</Link>
         </article>
 
       ))}
@@ -57,7 +57,7 @@ export default function Main() {
         <button disabled={page === 1} onClick={prevPage}>
           Anterior
         </button>
-        <button disabled={page === productInfo.pages} onClick={nextPage}>
+        <button disabled={page === personaInfo.pages} onClick={nextPage}>
           Próximo
         </button>
       </div>

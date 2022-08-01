@@ -1,0 +1,29 @@
+:root {
+    --background: #fff;
+    --border: #ddd;
+    --color: #666;
+    --color-link: #069;
+}
+
+.persona-info {
+    max-width: 700px;
+    margin: 20px auto 0;
+    padding: 20px;
+    background: var(--background);
+    border-radius: 5px;
+    border: 1px solid var(--border);
+}
+
+.persona-info h1 {
+    font-size: 32px;
+}
+
+.persona-info p {
+    color: var(--color);
+    line-height: 24px;
+    margin-top: 5px;
+}
+
+.persona-info p a {
+    color: var(--color-link);
+}

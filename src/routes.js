@@ -3,13 +3,13 @@ import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Main from "./pages/main";
-import People from "./pages/people";
+import Persona from "./pages/persona";
 
 const Routes = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={Main} />
-      <Route path="/people/:id" component={People} />
+      <Route path="/persona/:id" component={Persona} />
     </Switch>
   </BrowserRouter>
 );

@@ -1,31 +1,43 @@
-.product-list{
+:root {
+    --background: #FFF;
+    --border: #ddd;
+    --color: #999;
+    --border-button: #da552f;
+    --background-button: #da552f;
+    --color-button: #FFF;
+    --color-text: #da552f;
+    --background-hover: #da552f;
+    --color-text-hover:#FFF;
+}
+
+.main-list{
     max-width: 700px;
     margin: 20px auto 0;
     padding: 0 20px;
 }
 
-.product-list article{
-    background: #FFF;
-    border: 1px solid #ddd;
+.main-list article{
+    background: var(--background);
+    border: 1px solid var(--border);
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 20px;
 }
 
-.product-list article p{
+.main-list article p{
     font-size: 16px;
-    color: #999;
+    color: var(--color);
     margin-top: 5px;
     line-height: 24px;
 }
 
-.product-list article a{
+.main-list article a{
     height: 42px;
     border-radius: 5px;
-    border: 2px solid #da552f;
+    border: 2px solid var(--border-button);
     background: none;
     margin-top: 10px;
-    color: #da552f;
+    color: var(--color-text);
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -35,37 +47,37 @@
     transition: all 0.3s;
 }
 
-.product-list article a:hover{
-    background: #da552f;
-    color:#FFF;
+.main-list article a:hover{
+    background: var(--background-hover);
+    color:var(--color-text-hover);
 }
 
-.product-list .actions{
+.main-list .actions{
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
 }
 
-.product-list .actions button{
+.main-list .actions button{
     padding: 10px;
     border-radius: 5px;
     border: 0;
-    background: #da552f;
-    color: #FFF;
+    background: var(--background-button);
+    color: var(--color-button);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
 }
 
-.product-list .actions button[disabled]{
+.main-list .actions button[disabled]{
     opacity: 0.5;
     cursor: default;
 }
 
-.product-list .actions button:hover{
+.main-list .actions button:hover{
     opacity: 0.7;
 }
 
-.product-list .actions button[disabled]{
+.main-list .actions button[disabled]{
     opacity: 0.5;
 }

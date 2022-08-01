@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import "./style.css";
 
 export default function Main() {
@@ -9,21 +8,16 @@ export default function Main() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
+    loadPersonas();
+  }, []);
 
-    loadPersonas()
-
-  }, []); 
-
-  async function loadPersonas(page){
-
-    async function fetchPeople(){
-        let response = await fetch("https://swapi.dev/api/people/")
-        let data = await response.json()
-        setPersonas(data.results)
+  async function loadPersonas(page) {
+    async function fetchPeople() {
+      let response = await fetch("https://swapi.dev/api/people/");
+      let data = await response.json();
+      setPersonas(data.results);
     }
-
-    fetchPeople()
-
+    fetchPeople();
   }
 
   function prevPage() {
@@ -45,13 +39,12 @@ export default function Main() {
   return (
     <div className="main-list">
       {personas.map((persona) => (
-
         <article key={persona.created}>
           <strong>{persona.name}</strong>
-          <p>{persona.homeworld}</p>
-          <Link to={`/persona/${persona.created}`}>Acessar</Link>
+          <p>{persona.homeworld}
+          {console.log(persona.created)}</p>
+          <Link to={`/people/${persona.id}`}>Acessar</Link>
         </article>
-
       ))}
       <div className="actions">
         <button disabled={page === 1} onClick={prevPage}>

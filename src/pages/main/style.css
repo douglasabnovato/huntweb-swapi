@@ -11,7 +11,10 @@
     
     --background-header: #020004;
     --background-button-dark-grey: #34343b;
-    --color-text-button: #deff1c;    
+    --color-text-button: #deff1c;   
+    --new-border-button: #deff1c; 
+    --new-background-hover: #020004;
+    --new-color-text-hover:#deff1c;
 }
 
 .main-list{
@@ -38,10 +41,10 @@
 .main-list article a{
     height: 42px;
     border-radius: 5px;
-    border: 2px solid var(--border-button);
+    border: 2px solid var(--new-border-button);
     background: none;
     margin-top: 10px;
-    color: var(--color-text);
+    color: var(--color-text-button);
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
@@ -52,8 +55,8 @@
 }
 
 .main-list article a:hover{
-    background: var(--background-hover);
-    color:var(--color-text-hover);
+    background: var(--new-background-hover);
+    color:var(--new-color-text-hover);
 }
 
 .main-list .actions{

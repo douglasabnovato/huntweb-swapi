@@ -6,9 +6,9 @@
 }
 
 header#main-header {
-    height: 60px;
+    height: 80px;
     background: var(--new-background-header);
-    font-size:18px;
+    font-size:22px;
     font-weight: bold;
     color: var(--new-color-text-header);
     display: flex;

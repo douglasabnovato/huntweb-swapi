@@ -8,6 +8,10 @@
     --color-text: #da552f;
     --background-hover: #da552f;
     --color-text-hover:#FFF;
+    
+    --background-header: #020004;
+    --background-button-dark-grey: #34343b;
+    --color-text-button: #deff1c;    
 }
 
 .main-list{
@@ -62,8 +66,8 @@
     padding: 10px;
     border-radius: 5px;
     border: 0;
-    background: var(--background-button);
-    color: var(--color-button);
+    background: var(--background-button-dark-grey);
+    color: var(--color-text-button);
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;

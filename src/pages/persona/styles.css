@@ -3,6 +3,10 @@
     --border: #ddd;
     --color: #666;
     --color-link: #069;
+    
+    --background-persona: #020004;
+    --border-button-persona-dark-grey: #34343b;
+    --color-text-button-persona: #deff1c; 
 }
 
 .persona-info {

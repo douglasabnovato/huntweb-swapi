@@ -1,9 +1,16 @@
+:root {
+    --background-header: #da552f;
+    --color-text-header: #FFF;
+    --new-background-header: #020004;
+    --new-color-text-header: #deff1c;
+}
+
 header#main-header {
     height: 60px;
-    background: #da552f;
+    background: var(--new-background-header);
     font-size:18px;
     font-weight: bold;
-    color: #FFF;
+    color: var(--new-color-text-header);
     display: flex;
     justify-content: center;
     align-items: center;

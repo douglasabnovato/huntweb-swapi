@@ -132,6 +132,10 @@ Uma aplicação web que requisita informações de uma API
 
 ### Web - v2.0
 
+- [ ] favicon da star wars
+- [ ] fluxo da rota
+- [ ] header fixed
+
 - mudança da api para `https://swapi.dev.api`
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">

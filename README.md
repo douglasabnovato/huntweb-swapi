@@ -6,14 +6,9 @@
     <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi.jpg" />
 </h1>
 
-## 🚧 Construíndo
-
-- A navegação para detalhes de um item clicado não está acontecendo corretamente.
-- Melhorar o favicon
-
 ## 💻 Sobre o projeto
 
-♻️ Huntweb Swapi é uma versão atualizada para a api do star wars para listar informações. Permite acessar uma introdução de cada item ao clicá-lo.
+Projeto para consumir informações do star wars da api swapi e exibir no frontend desenvolvido em reactjs. Permite acessar uma introdução de cada item ao clicá-lo.
 
 #### Nova Api Swapi
 

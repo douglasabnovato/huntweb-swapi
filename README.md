@@ -129,7 +129,7 @@ Uma aplicação web que requisita informações de uma API
 
 - [x] favicon da star wars: insirido as imagens na pasta public
 - [ ] fluxo da rota
-- [ ] header fixed
+- [x] header fixed
 
 - mudança da api para `https://swapi.dev.api`
 

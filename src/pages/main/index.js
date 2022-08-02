@@ -8,12 +8,12 @@ export default function Main() {
   const [page, setPage] = useState(1);
 
   useEffect(() => {
-    loadPersonas();
+    loadPersonas(1);
   }, []);
 
   async function loadPersonas(page) {
     async function fetchPeople() {
-      let response = await fetch("https://swapi.dev/api/people/");
+      let response = await fetch(`https://swapi.dev/api/people/`);
       let data = await response.json();
       setPersonas(data.results);
     }
@@ -31,19 +31,24 @@ export default function Main() {
   function nextPage() {
     const [pageNext, setPageNext] = useState(page);
     const [personaInfoNext, setPersonaInfoNext] = useState(personaInfo);
+
     if (pageNext === personaInfoNext.pages) return;
     const pageNumber = pageNext + 1;
+
     loadPersonas(pageNumber);
+
+    console.log(pageNumber)
   }
 
   return (
     <div className="main-list">
       {personas.map((persona) => (
-        <article key={persona.created}>
+        <article key={persona.id}>
           <strong>{persona.name}</strong>
           <p>{persona.homeworld}
-          {console.log(persona.created)}</p>
-          <Link to={`/people/${persona.id}`}>Acessar</Link>
+          {console.log("persona: ",persona.id)}
+          {console.log("personas: ", personas)}</p>
+          <Link to={`/people/${persona.name}`}>Acessar</Link>
         </article>
       ))}
       <div className="actions">

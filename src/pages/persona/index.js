@@ -14,8 +14,7 @@ export default function Persona() {
   return (
     <div className="persona-info">
       <h1>{persona.name}</h1>
-      <p>{persona.homeworld}
-         {console.log(persona.id)}</p>
+      <p>{persona.homeworld}</p>
       <p>
         URL:<a href="{persona.url}">{persona.url}</a>
       </p>

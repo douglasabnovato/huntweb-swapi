@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import "./style.css";
+import "./styles.css";
 
 export default function Main() {
   const [personas, setPersonas] = useState([]);
   const [personaInfo, setPersonaInfo] = useState({});
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState();
 
   useEffect(() => {
     loadPersonas(1);
@@ -13,7 +13,7 @@ export default function Main() {
 
   async function loadPersonas(page) {
     async function fetchPeople() {
-      let response = await fetch(`https://swapi.dev/api/people/`);
+      let response = await fetch("https://swapi.dev/api/people/");
       let data = await response.json();
       setPersonas(data.results);
     }
@@ -31,24 +31,18 @@ export default function Main() {
   function nextPage() {
     const [pageNext, setPageNext] = useState(page);
     const [personaInfoNext, setPersonaInfoNext] = useState(personaInfo);
-
     if (pageNext === personaInfoNext.pages) return;
     const pageNumber = pageNext + 1;
-
     loadPersonas(pageNumber);
-
-    console.log(pageNumber)
   }
 
   return (
     <div className="main-list">
       {personas.map((persona) => (
-        <article key={persona.id}>
+        <article key={persona.name}>
           <strong>{persona.name}</strong>
-          <p>{persona.homeworld}
-          {console.log("persona: ",persona.id)}
-          {console.log("personas: ", personas)}</p>
-          <Link to={`/people/${persona.name}`}>Acessar</Link>
+          <p>{persona.homeworld}</p>
+          <Link to={`/people/${persona.id}`}>Acessar</Link>
         </article>
       ))}
       <div className="actions">

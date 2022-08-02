@@ -127,7 +127,7 @@ Uma aplicação web que requisita informações de uma API
 
 ### Web - v2.0
 
-- [ ] favicon da star wars
+- [x] favicon da star wars: insirido as imagens na pasta public
 - [ ] fluxo da rota
 - [ ] header fixed
 

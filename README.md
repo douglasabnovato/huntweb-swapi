@@ -130,6 +130,7 @@ Uma aplicação web que requisita informações de uma API
 - [x] favicon da star wars: insirido as imagens na pasta public
 - [x] fluxo da rota
 - [ ] paginação de objetos
+- [ ] estilização de item clicado
 - [x] header fixed
 - [x] header logo
 - [x] inspiração [starwars-visualguide](https://starwars-visualguide.com/#/)

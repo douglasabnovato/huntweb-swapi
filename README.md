@@ -3,7 +3,7 @@
 </h4>
 
 <h1 align="center">
-    <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black.jpg" />
+    <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black-2.jpg" />
 </h1>
 
 ## 💻 Sobre o projeto

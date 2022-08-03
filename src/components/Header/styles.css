@@ -3,12 +3,21 @@
     --color-text-header: #FFF;
     --new-background-header: #020004;
     --new-color-text-header: #deff1c;
+
+    --COLOR_WHITE: #fff;
+    --COLOR_BACKGROUND: #232323;
+    --COLOR_YELLOW: #ffe81f;
+    --COLOR_GRAY: #9d9d9d;
+    --COLOR_RED: #8e2e2e;
+    --COLOR_BLACK: #000;
+    --COLOR_BLUE: #2098d1;
+    --COLOR_BORDER: #3c3c3c;
 }
 
 header#main-header {
-    height: 80px;
+    height: 100px;
     background: var(--new-background-header);
-    font-size:22px;
+    font-size: 22px;
     font-weight: bold;
     color: var(--new-color-text-header);
     display: flex;
@@ -17,4 +26,10 @@ header#main-header {
     position: fixed;
     top: 0;
     width: 100%;
+}
+
+header#main-header .logo {
+    fill: var(--COLOR_YELLOW);
+    width: 100%;
+    max-width: 45rem;
 }

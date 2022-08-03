@@ -131,6 +131,7 @@ Uma aplicação web que requisita informações de uma API
 - [ ] fluxo da rota
 - [ ] paginação de objetos
 - [x] header fixed
+- [x] header logo
 
 - mudança da api para `https://swapi.dev.api`
 

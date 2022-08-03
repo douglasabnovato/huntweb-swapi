@@ -38,8 +38,8 @@ export default function Main() {
 
   return (
     <div className="main-list">
-      {personas.map((persona) => (
-        <article key={persona.name}>
+      {personas.map((persona, i) => (
+        <article key={i}>
           <strong>{persona.name}</strong>
           <p>{persona.homeworld}</p>
           <Link to={`/people/${persona.id}`}>Acessar</Link>

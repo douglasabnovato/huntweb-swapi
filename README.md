@@ -147,6 +147,7 @@ Uma aplicação web que requisita informações de uma API
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-desktop.jpg" width="400px">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-mobile.jpg" height="400px">
+  <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-loader.jpg" height="400px">
 </p>
 
 ### Web - v1.0

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import api from "../../services/api";
 import "./styles.css";
 
 export default function Persona() {

@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Loader from "./../../components/Loader";
 import "./styles.css";
 
 export default function Main() {
   const [personas, setPersonas] = useState([]);
   const [personaInfo, setPersonaInfo] = useState({});
   const [page, setPage] = useState();
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     loadPersonas(1);
@@ -16,6 +18,7 @@ export default function Main() {
       let response = await fetch("https://swapi.dev/api/people/");
       let data = await response.json();
       setPersonas(data.results);
+      setTimeout(setLoading(true), 1000);      
     }
     fetchPeople();
   }
@@ -38,21 +41,29 @@ export default function Main() {
 
   return (
     <div className="main-list">
-      {personas.map((persona, index) => (
-        <article key={index}>
-          <strong>{persona.name}</strong>
-          <p>{persona.homeworld}</p>
-          <Link to={`/people/${index+1}`}>Acessar</Link>
-        </article>
-      ))}
-      <div className="actions">
-        <button disabled={page === 1} onClick={prevPage}>
-          Anterior
-        </button>
-        <button disabled={page === personaInfo.pages} onClick={nextPage}>
-          Próximo
-        </button>
-      </div>
+      {(!loading) ? (
+        <>
+          <Loader />
+        </>
+      ) : (
+        <>
+          {personas.map((persona, index) => (
+            <article key={index}>
+              <strong>{persona.name}</strong>
+              <p>{persona.homeworld}</p>
+              <Link to={`/people/${index + 1}`}>Acessar</Link>
+            </article>
+          ))}
+          <div className="actions">
+            <button disabled={page === 1} onClick={prevPage}>
+              Anterior
+            </button>
+            <button disabled={page === personaInfo.pages} onClick={nextPage}>
+              Próximo
+            </button>
+          </div>
+        </>
+      )}
     </div>
   );
 }

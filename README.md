@@ -3,7 +3,7 @@
 </h4>
 
 <h1 align="center">
-    <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black-2.jpg" />
+    <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black-v2.jpg" />
 </h1>
 
 ## 💻 Sobre o projeto
@@ -129,7 +129,9 @@ Uma aplicação web que requisita informações de uma API
 
 - [x] favicon da star wars: insirido as imagens na pasta public
 - [x] fluxo da rota
+- [x] componente de loader para o elemento people clicado
 - [ ] paginação de objetos
+- [ ] estilização de item clicado
 - [x] header fixed
 - [x] header logo
 - [x] inspiração [starwars-visualguide](https://starwars-visualguide.com/#/)
@@ -145,6 +147,7 @@ Uma aplicação web que requisita informações de uma API
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-desktop.jpg" width="400px">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-mobile.jpg" height="400px">
+  <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-loader.jpg" height="400px">
 </p>
 
 ### Web - v1.0

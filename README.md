@@ -3,7 +3,7 @@
 </h4>
 
 <h1 align="center">
-    <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black.jpg" />
+    <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black-2.jpg" />
 </h1>
 
 ## 💻 Sobre o projeto
@@ -128,20 +128,30 @@ Uma aplicação web que requisita informações de uma API
 ### Web - v2.0
 
 - [x] favicon da star wars: insirido as imagens na pasta public
-- [ ] fluxo da rota
+- [x] fluxo da rota
 - [ ] paginação de objetos
 - [x] header fixed
+- [x] header logo
+- [x] inspiração [starwars-visualguide](https://starwars-visualguide.com/#/)
+- [x] inspiração [tbone849-star-wars-guide](https://github.com/tbone849/star-wars-guide)
+- [x] inspiração [swapi-task](https://finmavis.github.io/swapi-task/)
+- [x] inspiração [finmavis-swapi-task](https://github.com/finmavis/swapi-task)
+- [x] inspiração [animatk-ReactJS-Star-Wars-API](https://github.com/animatk/ReactJS-Star-Wars-API)
 
-- mudança da api para `https://swapi.dev.api`
+<h5 align="center"> 
+	🚀 mudança da api para `https://swapi.dev.api`
+</h5>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-desktop.jpg" width="400px">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-mobile.jpg" height="400px">
-</p> 
+</p>
 
 ### Web - v1.0
 
-- mudança da api para `http://rocketseat-node.herokuapp.com/api`
+<h5 align="center"> 
+	🚀 mudança da api para `http://rocketseat-node.herokuapp.com/api`
+</h5>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb exibi uma lista de produtos" title="#huntweb" src="./.github/hunt-web.jpg" width="400px">

@@ -138,18 +138,24 @@ Uma aplicação web que requisita informações de uma API
 - [x] inspiração [finmavis-swapi-task](https://github.com/finmavis/swapi-task)
 - [x] inspiração [animatk-ReactJS-Star-Wars-API](https://github.com/animatk/ReactJS-Star-Wars-API)
 
+<h5 align="center"> 
+	🚀 mudança da api para `https://swapi.dev.api`
+</h5>
+
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-desktop.jpg" width="400px">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-mobile.jpg" height="400px">
 </p>
-- mudança da api para `https://swapi.dev.api`
 
 ### Web - v1.0
+
+<h5 align="center"> 
+	🚀 mudança da api para `http://rocketseat-node.herokuapp.com/api`
+</h5>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb exibi uma lista de produtos" title="#huntweb" src="./.github/hunt-web.jpg" width="400px">
 </p> 
-- mudança da api para `http://rocketseat-node.herokuapp.com/api`
 
 ## 🛠 Tecnologias
 

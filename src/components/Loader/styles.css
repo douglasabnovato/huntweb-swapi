@@ -1,0 +1,27 @@
+:root {
+    --COLOR_YELLOW: #ffe81f;
+}
+
+#loader {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 70vh;
+}
+
+#loader .loader-image {
+    animation: loaderSpin infinite 2.5s linear;
+    height: 8rem;
+    fill: var(--COLOR_YELLOW);
+}
+
+@keyframes loaderSpin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

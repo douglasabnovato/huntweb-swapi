@@ -132,13 +132,18 @@ Uma aplicação web que requisita informações de uma API
 - [ ] paginação de objetos
 - [x] header fixed
 - [x] header logo
+- [x] inspiração [starwars-visualguide](https://starwars-visualguide.com/#/)
+- [x] inspiração [tbone849-star-wars-guide](https://github.com/tbone849/star-wars-guide)
+- [x] inspiração [swapi-task](https://finmavis.github.io/swapi-task/)
+- [x] inspiração [finmavis-swapi-task](https://github.com/finmavis/swapi-task)
+- [x] inspiração [animatk-ReactJS-Star-Wars-API](https://github.com/animatk/ReactJS-Star-Wars-API)
 
 - mudança da api para `https://swapi.dev.api`
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-desktop.jpg" width="400px">
   <img alt="Huntweb Starwars exibi uma lista de personagens" title="#huntwebstarwars" src="./.github/huntweb-swapi-mobile.jpg" height="400px">
-</p> 
+</p>
 
 ### Web - v1.0
 

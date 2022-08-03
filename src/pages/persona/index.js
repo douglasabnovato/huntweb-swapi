@@ -19,7 +19,7 @@ export default function Persona() {
       let response = await fetch(`https://swapi.dev/api/people/${index.id}`);
       let data = await response.json();
       setPersona(data);
-      setLoading(true)
+      setLoading(true);
     }
     fetchPersona();
   }

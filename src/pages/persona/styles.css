@@ -6,7 +6,11 @@
     
     --background-persona: #020004;
     --border-button-persona-dark-grey: #34343b;
-    --color-text-button-persona: #deff1c; 
+    --color-text-button-persona: #deff1c;   
+    --new-border-button: #deff1c; 
+    --color-text-button: #deff1c; 
+    --new-background-hover: #020004;
+    --new-color-text-hover:#deff1c;
 }
 
 .persona-info {
@@ -30,4 +34,25 @@
 
 .persona-info p a {
     color: var(--color-link);
+}
+
+.persona-info div a{
+    height: 42px;
+    border-radius: 5px;
+    border: 2px solid var(--new-border-button);
+    background: none;
+    margin-top: 10px;
+    color: var(--color-text-button);
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.persona-info div a:hover{
+    background: var(--new-background-hover);
+    color:var(--new-color-text-hover);
 }

@@ -6,7 +6,7 @@ import "./styles.css";
 export default function Main() {
   const [personas, setPersonas] = useState([]);
   const [personaInfo, setPersonaInfo] = useState({});
-  const [page, setPage] = useState();
+  const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -15,33 +15,27 @@ export default function Main() {
 
   async function loadPersonas(page) {
     async function fetchPeople() {
-      let response = await fetch("https://swapi.dev/api/people/");
+      let response = await fetch(`https://swapi.dev/api/people/?page=${page}`);
       let data = await response.json();
+      setPage(page);
+      setPersonaInfo(data);
       setPersonas(data.results);
-      setTimeout(setLoading(true), 1000);      
+      setTimeout(setLoading(true), 1000);
     }
     fetchPeople();
   }
 
   function prevPage() {
-    const [pagePrev, setPagePrev] = useState(page);
-    const [personaInfoPrev, setPersonaInfoPrev] = useState(personaInfo);
-    if (pagePrev === 1) return;
-    const pageNumber = pagePrev - 1;
-    loadPersonas(pageNumber);
+    loadPersonas(page - 1);
   }
 
   function nextPage() {
-    const [pageNext, setPageNext] = useState(page);
-    const [personaInfoNext, setPersonaInfoNext] = useState(personaInfo);
-    if (pageNext === personaInfoNext.pages) return;
-    const pageNumber = pageNext + 1;
-    loadPersonas(pageNumber);
+    loadPersonas(page + 1);
   }
 
   return (
     <div className="main-list">
-      {(!loading) ? (
+      {!loading ? (
         <>
           <Loader />
         </>
@@ -50,15 +44,22 @@ export default function Main() {
           {personas.map((persona, index) => (
             <article key={index}>
               <strong>{persona.name}</strong>
-              <p>{persona.homeworld}</p>
+              <p>
+                <strong>planet: </strong>
+                {persona.homeworld}
+              </p>
+              <p>
+                <strong>this: </strong>
+                {persona.url}
+              </p>
               <Link to={`/people/${index + 1}`}>Acessar</Link>
             </article>
           ))}
           <div className="actions">
-            <button disabled={page === 1} onClick={prevPage}>
+            <button disabled={personaInfo.previous === null} onClick={prevPage}>
               Anterior
             </button>
-            <button disabled={page === personaInfo.pages} onClick={nextPage}>
+            <button disabled={personaInfo.next === null} onClick={nextPage}>
               Próximo
             </button>
           </div>

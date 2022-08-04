@@ -51,8 +51,8 @@ export default function Main() {
               <p>
                 <strong>this: </strong>
                 {persona.url}
-              </p>
-              <Link to={`/people/${index + 1}`}>Acessar</Link>
+              </p>       
+              <Link to={`/people/${persona.url.substring(29, 31)}`}>Acessar</Link>
             </article>
           ))}
           <div className="actions">

@@ -142,6 +142,7 @@ Uma aplicação web que requisita informações de uma API
 - [x] header logo
 - [ ] tratar paginação no fluxo para page > 1 (Navegação (Roteamento))
 - [ ] o botão voltar (Navegação (Roteamento))
+- [x] [reactrouter](https://v5.reactrouter.com/web/guides/quick-start)
 - [x] inspiração [starwars-visualguide](https://starwars-visualguide.com/#/)
 - [x] inspiração [tbone849-star-wars-guide](https://github.com/tbone849/star-wars-guide)
 - [x] inspiração [swapi-task](https://finmavis.github.io/swapi-task/)

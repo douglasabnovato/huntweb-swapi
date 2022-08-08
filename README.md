@@ -163,7 +163,7 @@ Uma aplicação web que requisita informações de uma API
 ### Web - v1.0
 
 <h5 align="center"> 
-	🚀 mudança da api para `http://rocketseat-node.herokuapp.com/api`
+	🚀 api `http://rocketseat-node.herokuapp.com/api`
 </h5>
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;">

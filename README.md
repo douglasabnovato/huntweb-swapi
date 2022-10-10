@@ -229,6 +229,8 @@ Este projeto esta sobe a licença MIT.
 
 Feito com ❤️ por Douglas A B Novato 👋🏽 [Entre em contato!](https://www.linkedin.com/in/douglasabnovato/)
 
+Fonte do projeto: [Rocketseat Discover - ReactJS](https://www.rocketseat.com.br/)
+
 [git]: https://git-scm.com/doc
 [github]: https://docs.github.com/en
 [nodejs]: https://nodejs.org/

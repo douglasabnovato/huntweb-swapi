@@ -9,6 +9,7 @@
 ## 💻 Sobre o projeto
 
 Projeto para consumir informações do star wars da api swapi e exibir no frontend desenvolvido em reactjs. Permite acessar uma introdução de cada item ao clicá-lo.
+O que mais gosto desse projeto é que foi o meu primeiro bootcamp e o meu primeiro desafio contendo frontend consumindo uma API.
 
 #### Nova Api Swapi
 

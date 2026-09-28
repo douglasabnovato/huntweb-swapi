@@ -132,6 +132,16 @@ Componentização, roteamento, ciclos de vida, utilização de API Rest, estado.
 
 Uma aplicação web que requisita informações de uma API
 
+### Web - v3.0 (revisão de qualidade)
+
+- [x] Link do personagem corrigido para qualquer id (antes quebrava em ids de 1 e 3 dígitos)
+- [x] Planeta natal mostra o nome (usa `src/data/planets.json` e busca os que faltam)
+- [x] Busca por nome, página na URL, detalhe com mais dados e página 404
+- [x] Mensagens de erro com "Tentar de novo" (antes o carregamento ficava eterno)
+- [x] Contraste AA, rótulos e foco visível (axe-core sem violações)
+- [x] Vite 8 + React 18 + React Router 7; testes com Vitest; `npm audit` sem alertas
+- Detalhes em [docs/ANALISE.md](docs/ANALISE.md), [docs/ARQUITETURA.md](docs/ARQUITETURA.md) e [docs/PLANO-DE-ACAO.md](docs/PLANO-DE-ACAO.md)
+
 ### Web - v2.0
 
 - [x] favicon da star wars: insirido as imagens na pasta public
@@ -187,34 +197,22 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 ## 🚀 Como executar o projeto
 
-Podemos considerar este projeto como sendo com uma parte:
-1. Front End 
-2. API Rest
-
-### Pré-requisitos
-
-Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [Node.js][nodejs]. 
-Além disto é bom ter um editor para trabalhar com o código como [VSCode][vscode]
-
-### 🧭 Rodando a aplicação web (Front End)
-
-```bash 
-# Clone este repositório
-$ git clone https://github.com/douglasabnovato/huntweb
-
-# Acesse a pasta do projeto no seu terminal/cmd
-$ cd huntweb 
-
-# Instale as dependências
-$ npm install
-
-# Execute a aplicação em modo de desenvolvimento
-$ npm run start
-
-# A aplicação será aberta na porta:3000 - acesse http://localhost:3000
-
+```bash
+git clone https://github.com/douglasabnovato/huntweb-swapi
+cd huntweb-swapi
+npm install
+npm run dev      # http://localhost:5173
+npm test         # testes com Vitest
+npm run build    # gera build/ (publicado no GitHub Pages pelo workflow)
 ```
+
+A URL da API pode ser trocada em `.env` (`VITE_SWAPI_URL`) e, no site publicado, pela variável de repositório `VITE_SWAPI_URL`. Só funciona com uma API no mesmo formato da swapi.dev (lista paginada com `count`, `next`, `results` e busca por `?search=`); veja [docs/DEPLOY.md](docs/DEPLOY.md).
+
+### Em produção
+
+- URL: https://douglasabnovato.github.io/huntweb-swapi/
+- Hospedagem: GitHub Pages (gratuito), publicado pelo GitHub Actions a cada push na `master`
+- Passo a passo: [docs/DEPLOY.md](docs/DEPLOY.md)
 
 ## 😯 Como contribuir para o projeto
 

@@ -1,3 +1,4 @@
+/* Indicador de carregamento */
 :root {
     --COLOR_YELLOW: #ffe81f;
 }
@@ -25,3 +26,4 @@
         transform: rotate(360deg);
     }
 }
+/* Fim de Loader/styles.css */

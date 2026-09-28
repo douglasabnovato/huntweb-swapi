@@ -1,58 +1,12 @@
-:root {
-    --background: #fff;
-    --border: #ddd;
-    --color: #666;
-    --color-link: #069;
-    
-    --background-persona: #020004;
-    --border-button-persona-dark-grey: #34343b;
-    --color-text-button-persona: #deff1c;   
-    --new-border-button: #deff1c; 
-    --color-text-button: #deff1c; 
-    --new-background-hover: #020004;
-    --new-color-text-hover:#deff1c;
-}
-
-.persona-info {
-    max-width: 700px;
-    margin: 110px auto 0;
-    padding: 20px;
-    background: var(--background);
-    border-radius: 5px;
-    border: 1px solid var(--border);
-}
-
-.persona-info h1 {
-    font-size: 32px;
-}
-
-.persona-info p {
-    color: var(--color);
-    line-height: 24px;
-    margin-top: 5px;
-}
-
-.persona-info p a {
-    color: var(--color-link);
-}
-
-.persona-info div a{
-    height: 42px;
-    border-radius: 5px;
-    border: 2px solid var(--new-border-button);
-    background: none;
-    margin-top: 10px;
-    color: var(--color-text-button);
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
-}
-
-.persona-info div a:hover{
-    background: var(--new-background-hover);
-    color:var(--new-color-text-hover);
-}
+/* Detalhe do personagem */
+.persona-info { max-width: 700px; margin: 120px auto 40px; padding: 24px; background: #fff; border-radius: 5px; border: 1px solid #ddd; }
+.persona-info h1 { font-size: 32px; color: #020004; }
+.persona-info dl { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px 24px; }
+.persona-info dt { font-weight: bold; color: #333; font-size: 14px; }
+.persona-info dd { color: #555; margin-top: 2px; text-transform: capitalize; }
+.persona-info p { color: #555; margin-top: 8px; }
+.persona-info .actions { display: flex; gap: 16px; align-items: center; margin-top: 24px; }
+.persona-info .actions a, .persona-info .link-button { color: #1a4f8b; font-size: 16px; }
+.persona-info .link-button { background: none; border: 0; text-decoration: underline; cursor: pointer; }
+@media (max-width: 480px) { .persona-info { margin: 100px 12px 24px; } .persona-info dl { grid-template-columns: 1fr; } }
+/* Fim de persona/styles.css */

@@ -1,3 +1,4 @@
+/* Cabeçalho fixo */
 :root {
     --background-header: #da552f;
     --color-text-header: #FFF;
@@ -28,8 +29,7 @@ header#main-header {
     width: 100%;
 }
 
-header#main-header .logo {
-    fill: var(--COLOR_YELLOW);
-    width: 100%;
-    max-width: 45rem;
-}
+header#main-header .logo-link { display: block; width: 100%; max-width: 45rem; padding: 0 16px; }
+header#main-header .logo { width: 100%; height: auto; max-height: 76px; display: block; }
+header#main-header { z-index: 10; }
+/* Fim de Header/styles.css */

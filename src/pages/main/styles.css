@@ -1,90 +1,23 @@
-:root {
-    --background: #FFF;
-    --border: #ddd;
-    --color: #999;
-    --border-button: #da552f;
-    --background-button: #da552f;
-    --color-button: #FFF;
-    --color-text: #da552f;
-    --background-hover: #da552f;
-    --color-text-hover:#FFF;
-    
-    --background-header: #020004;
-    --background-button-dark-grey: #34343b;
-    --color-text-button: #deff1c;   
-    --new-border-button: #deff1c; 
-    --new-background-hover: #020004;
-    --new-color-text-hover:#deff1c;
-} 
-
-.main-list{
-    max-width: 700px;
-    margin: 110px auto 0;
-    padding: 0 20px;
+/* Lista de personagens: cartões, busca e paginação (contraste AA; antes amarelo sobre branco) */
+.main-list { max-width: 700px; margin: 120px auto 40px; padding: 0 20px; }
+.main-list .page-title { font-size: 24px; margin-bottom: 16px; color: #020004; }
+.main-list .search { display: flex; gap: 8px; margin-bottom: 20px; }
+.main-list .search input { flex: 1; height: 44px; border: 1px solid #767676; border-radius: 5px; padding: 0 12px; font-size: 16px; }
+.main-list .search button,
+.main-list .actions button,
+.main-list .error button { padding: 10px 16px; border-radius: 5px; border: 0; background: #34343b; color: #ffe81f; font-size: 16px; font-weight: bold; cursor: pointer; }
+.main-list article { background: #fff; border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin-bottom: 20px; }
+.main-list article h2 { font-size: 20px; color: #020004; }
+.main-list article p { font-size: 16px; color: #555; margin-top: 5px; line-height: 24px; }
+.main-list article a {
+    height: 44px; border-radius: 5px; background: #020004; margin-top: 12px; color: #ffe81f; font-weight: bold; font-size: 16px;
+    text-decoration: none; display: flex; justify-content: center; align-items: center; transition: background 0.2s;
 }
-
-.main-list article{
-    background: var(--background);
-    border: 1px solid var(--border);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 20px;
-}
-
-.main-list article p{
-    font-size: 16px;
-    color: var(--color);
-    margin-top: 5px;
-    line-height: 24px;
-}
-
-.main-list article a{
-    height: 42px;
-    border-radius: 5px;
-    border: 2px solid var(--new-border-button);
-    background: none;
-    margin-top: 10px;
-    color: var(--color-text-button);
-    font-weight: bold;
-    font-size: 16px;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: all 0.3s;
-}
-
-.main-list article a:hover{
-    background: var(--new-background-hover);
-    color:var(--new-color-text-hover);
-}
-
-.main-list .actions{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.main-list .actions button{
-    padding: 10px;
-    border-radius: 5px;
-    border: 0;
-    background: var(--background-button-dark-grey);
-    color: var(--color-text-button);
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.main-list .actions button[disabled]{
-    opacity: 0.5;
-    cursor: default;
-}
-
-.main-list .actions button:hover{
-    opacity: 0.7;
-}
-
-.main-list .actions button[disabled]{
-    opacity: 0.5;
-}
+.main-list article a:hover { background: #34343b; }
+.main-list .actions { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; gap: 12px; }
+.main-list .actions button[disabled] { opacity: 0.5; cursor: default; }
+.main-list .error { background: #fdecea; border: 1px solid #b3261e; color: #7a1a14; padding: 16px; border-radius: 5px; margin-bottom: 20px; }
+.main-list .error button { margin-top: 10px; }
+.main-list .empty { color: #555; }
+@media (max-width: 480px) { .main-list { margin-top: 100px; padding: 0 12px; } }
+/* Fim de main/styles.css */

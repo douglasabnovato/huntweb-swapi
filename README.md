@@ -8,6 +8,15 @@
     <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black-v2.jpg" />
 </h1>
 
+## 🧠 O que aprendi
+
+> Proposta de 01/11/2026, escrita a partir do código e das dependências. Ajuste com a sua experiência.
+
+- Consumir uma API pública e paginar resultados em React.
+- Configurar a URL da API por variável de ambiente.
+- Navegar entre lista e detalhe com React Router.
+- Testar a interface com Vitest.
+
 ## 💻 Sobre o projeto
 
 Projeto para consumir informações do star wars da api swapi e exibir no frontend desenvolvido em reactjs. Permite acessar uma introdução de cada item ao clicá-lo.

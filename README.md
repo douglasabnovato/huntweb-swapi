@@ -1,4 +1,4 @@
-> **Projeto de estudo.** Estado conferido em 30/10/2026: 1 endereço(s) citado(s) abaixo não responde(m). Detalhes em [docs/AVALIACAO.md](docs/AVALIACAO.md) e próximos passos em [docs/PLANO-ESTRATEGICO.md](docs/PLANO-ESTRATEGICO.md).
+> **Projeto de estudo.** Estado conferido em 31/10/2026: os endereços que seguem fora do ar foram retirados deste README. Detalhes em [docs/AVALIACAO.md](docs/AVALIACAO.md) e próximos passos em [docs/PLANO-ESTRATEGICO.md](docs/PLANO-ESTRATEGICO.md).
 
 <h4 align="center"> 
 	🚧 Huntweb Swapi 🚀
@@ -210,10 +210,10 @@ npm run build    # gera build/ (publicado no GitHub Pages pelo workflow)
 
 A URL da API pode ser trocada em `.env` (`VITE_SWAPI_URL`) e, no site publicado, pela variável de repositório `VITE_SWAPI_URL`. Só funciona com uma API no mesmo formato da swapi.dev (lista paginada com `count`, `next`, `results` e busca por `?search=`); veja [docs/DEPLOY.md](docs/DEPLOY.md).
 
-### Em produção
+### Publicação
 
-- URL: https://douglasabnovato.github.io/huntweb-swapi/
-- Hospedagem: GitHub Pages (gratuito), publicado pelo GitHub Actions a cada push na `master`
+- Fora do ar desde a conferência de 31/10/2026; para ver o projeto, rode localmente (seção "Como executar o projeto").
+- Hospedagem prevista: GitHub Pages (gratuito), publicado pelo GitHub Actions a cada push na `master`
 - Passo a passo: [docs/DEPLOY.md](docs/DEPLOY.md)
 
 ## 😯 Como contribuir para o projeto

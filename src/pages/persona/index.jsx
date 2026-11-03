@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader";
 import PlanetName from "../../components/PlanetName";
-import { fetchPerson } from "../../lib/swapi";
+import { fetchPerson, filmTitles } from "../../lib/swapi";
 import "./styles.css";
 
 const FIELDS = [
@@ -21,6 +21,7 @@ export default function Persona() {
   const navigate = useNavigate();
   const [persona, setPersona] = useState(null);
   const [error, setError] = useState(null);
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -30,7 +31,7 @@ export default function Persona() {
       .then(setPersona)
       .catch((err) => { if (err.name !== "AbortError") setError(err); });
     return () => ctrl.abort();
-  }, [id]);
+  }, [id, attempt]);
 
   /* Volta para a página anterior (ou para a lista se abriu direto pelo link) */
   const back = () => (window.history.length > 1 ? navigate(-1) : navigate("/"));
@@ -41,6 +42,9 @@ export default function Persona() {
         <>
           <h1>{error.status === 404 ? "Personagem não encontrado" : "Não foi possível carregar"}</h1>
           <p role="alert">{error.message}</p>
+          {error.status !== 404 && (
+            <button type="button" onClick={() => setAttempt((a) => a + 1)}>Tentar de novo</button>
+          )}
         </>
       ) : !persona ? <Loader label="Carregando personagem…" /> : (
         <>
@@ -51,6 +55,14 @@ export default function Persona() {
             ))}
             <div><dt>Planeta natal</dt><dd><PlanetName url={persona.homeworld} /></dd></div>
           </dl>
+          {filmTitles(persona.films).length > 0 && (
+            <section aria-labelledby="films-title">
+              <h2 id="films-title">Filmes</h2>
+              <ul className="films">
+                {filmTitles(persona.films).map((t) => <li key={t}>{t}</li>)}
+              </ul>
+            </section>
+          )}
         </>
       )}
       <div className="actions">

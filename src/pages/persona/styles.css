@@ -8,5 +8,8 @@
 .persona-info .actions { display: flex; gap: 16px; align-items: center; margin-top: 24px; }
 .persona-info .actions a, .persona-info .link-button { color: #1a4f8b; font-size: 16px; }
 .persona-info .link-button { background: none; border: 0; text-decoration: underline; cursor: pointer; }
+.persona-info > button { margin-top: 12px; padding: 10px 16px; border-radius: 5px; border: 0; background: #34343b; color: #ffe81f; font-size: 16px; font-weight: bold; cursor: pointer; }
+.persona-info h2 { font-size: 20px; color: #020004; margin-top: 24px; }
+.persona-info .films { margin-top: 8px; padding-left: 20px; color: #555; line-height: 1.6; }
 @media (max-width: 480px) { .persona-info { margin: 100px 12px 24px; } .persona-info dl { grid-template-columns: 1fr; } }
 /* Fim de persona/styles.css */

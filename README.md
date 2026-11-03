@@ -143,6 +143,24 @@ Componentização, roteamento, ciclos de vida, utilização de API Rest, estado.
 
 Uma aplicação web que requisita informações de uma API
 
+### Web - v3.1 (ciclo de 03/11/2026)
+
+- [x] Falha da SWAPI testada: rede caída, servidor fora do ar e tempo esgotado (15 s) têm mensagem
+- [x] "Tentar de novo" também no detalhe do personagem
+- [x] Filmes do personagem no detalhe, sem nova chamada à API
+- [x] Saiu o código antigo (`src/routes.js`, `src/services/api.js` com axios, `public/index.html`)
+- [x] CI também nos PRs para `developer/**`
+
+### Próximos passos
+
+- Ligar o GitHub Pages e publicar (responsável)
+- Proteger a `master` com PR e CI obrigatórios (responsável)
+- API de reserva quando a swapi.dev cai
+- Páginas de planetas, espécies e naves
+- Teste de navegador e README atualizado
+
+As issues abertas têm os critérios de cada item.
+
 ### Web - v3.0 (revisão de qualidade)
 
 - [x] Link do personagem corrigido para qualquer id (antes quebrava em ids de 1 e 3 dígitos)

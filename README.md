@@ -8,6 +8,29 @@
     <img alt="huntweb-swapi exibi detalhes dos personagens do star wars" title="#huntweb-swapi" src="./.github/huntweb-swapi-black-v2.jpg" />
 </h1>
 
+## Estado e próximos passos (ciclo de 03/11/2026)
+
+Sem site publicado: o GitHub Pages não está ligado, e `douglasabnovato.github.io/huntweb-swapi/` dá 404 em 06/11/2026 ([#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25)). Para ver o projeto, rode localmente.
+
+**O que foi feito**
+- Limite de tempo e mensagens de falha da SWAPI, com testes ([#31](https://github.com/douglasabnovato/huntweb-swapi/pull/31)).
+- "Tentar de novo" no detalhe e filmes do personagem, com testes ([#31](https://github.com/douglasabnovato/huntweb-swapi/pull/31)).
+- Código antigo apagado e CI também na `developer` ([#31](https://github.com/douglasabnovato/huntweb-swapi/pull/31)).
+- MVP de estudo registrado na régua N1 ([#22](https://github.com/douglasabnovato/huntweb-swapi/pull/22)).
+- Licença MIT ([#21](https://github.com/douglasabnovato/huntweb-swapi/pull/21)) e README sem endereços fora do ar ([#17](https://github.com/douglasabnovato/huntweb-swapi/pull/17)).
+
+**O que queremos fazer**
+- [#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25) Ligar o GitHub Pages e publicar o site (responsável).
+- [#26](https://github.com/douglasabnovato/huntweb-swapi/issues/26) Proteger a `master` com PR e CI obrigatórios (responsável).
+- [#27](https://github.com/douglasabnovato/huntweb-swapi/issues/27) API de reserva quando a swapi.dev cai.
+- [#28](https://github.com/douglasabnovato/huntweb-swapi/issues/28) Páginas de planetas, espécies e naves.
+- [#29](https://github.com/douglasabnovato/huntweb-swapi/issues/29) Teste de navegador do fluxo buscar, abrir e voltar.
+- [#30](https://github.com/douglasabnovato/huntweb-swapi/issues/30) Atualizar o README com o que o projeto usa hoje.
+
+**Onde está a documentação**
+- Estado e critérios: [docs/MVP.md](docs/MVP.md).
+- Plano do ciclo: [docs/PLANO-DE-ACAO.md](docs/PLANO-DE-ACAO.md), seção "Ciclo de 03/11/2026".
+
 ## 🧠 O que aprendi
 
 > Proposta de 01/11/2026, escrita a partir do código e das dependências. Ajuste com a sua experiência.

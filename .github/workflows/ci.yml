@@ -1,4 +1,4 @@
-# Verificação de projeto de estudo: não publica nada
+# CI: testes e build em PR e push; publicação no GitHub Pages só em push na master, depois do build verde
 name: CI
 
 on:
@@ -13,9 +13,6 @@ permissions:
 jobs:
   raiz:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: .
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,3 +23,28 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm run build
+        env:
+          VITE_SWAPI_URL: ${{ vars.VITE_SWAPI_URL }}
+      # Artefato do Pages só em push na master
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        with:
+          path: build
+
+  # Publicação: só em push na master e só depois do job raiz verde
+  deploy:
+    needs: raiz
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

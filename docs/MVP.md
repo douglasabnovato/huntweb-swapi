@@ -4,9 +4,11 @@
 
 **Nível:** Estudo (N1). Os critérios 5 e 7 não se aplicam e saem da conta: 10 critérios.
 
-**Resultado em 03/11/2026:** 9 de 10 critérios aplicáveis atendidos (1, 2, 3, 4, 6, 8, 9, 11, 12); 1 parcial (10). O resumo anterior dizia 9 de 12 e marcava o critério 10 como "Atende" com a principal sem proteção.
+**Resumo:** 10 de 10 aplicáveis atendidos
 
-**Finalizado: sim.** Pela regra do ciclo, o critério que falta depende do responsável e tem issue aberta com o rótulo `depende-do-responsavel`: 10 (#26). A publicação no Pages (#25) também é do responsável.
+**Finalizado:** sim
+
+**Estado em 10/11/2026:** todos os critérios aplicáveis atendem. O critério 10 passou a "Atende": a `master` está protegida pelo ruleset `principal-protegida` desde 10/11/2026 (#26). O workflow `CI` já tem o job de publicação no Pages (só em push na `master`); falta o responsável ligar o Pages (#25).
 
 ## 1. Critérios
 
@@ -21,7 +23,7 @@
 | 7 | Desempenho aceitável | LCP de até 2,5 s no celular | Não se aplica (N1) | — | 03/11/2026 |
 | 8 | Acessibilidade básica | axe e teclado | Atende: axe sem violações em 2 telas e foco visível (02/11); botões novos com nome; "Filmes" como título de seção | `src/pages/persona/index.jsx` | 03/11/2026 |
 | 9 | Segurança e conformidade | Riscos decididos | Atende: sem segredo nem dado pessoal; `npm audit --omit=dev` sem alertas; varredura de segredos sem achado | `git grep` do guia de estado | 03/11/2026 |
-| 10 | Entrega confiável | CI verde antes de entrar na principal | Parcial: CI em PRs para `master` e `developer/**`; `master` sem proteção | #26 | 03/11/2026 |
+| 10 | Entrega confiável | CI verde antes de entrar na principal | Atende: `gh api repos/douglasabnovato/huntweb-swapi/rulesets`, em 10/11/2026: ruleset `principal-protegida` ativo (exige PR, bloqueia force push e exclusão); workflow `CI` roda nos PRs para `master` e `developer/**` | `gh api repos/douglasabnovato/huntweb-swapi/rules/branches/master` (deletion, non_fast_forward, pull_request); #26 | 10/11/2026 |
 | 11 | Testes dos fluxos críticos | Testes automatizados no CI | Atende: 9 testes no Vitest rodam no CI | CI do PR do ciclo | 03/11/2026 |
 | 12 | Documentação honesta | O README ensina a rodar, e os números estão certos | Atende: README e este resumo revistos; o README diz que o site está fora do ar. A limpeza das ferramentas antigas segue na #30 | `README.md`, este arquivo | 03/11/2026 |
 
@@ -40,6 +42,6 @@ Favoritos, contas e demais recursos da SWAPI.
 | 1 | Falha da SWAPI testada, limite de tempo e "Tentar de novo" no detalhe | Feito (#24) |
 | 2 | Filmes do personagem no detalhe | Feito (#24) |
 | 3 | CI nos PRs para a `developer` | Feito neste ciclo |
-| 4 | Ligar o Pages | Com o responsável (#25) |
-| 5 | Proteger a `master` | Com o responsável (#26) |
+| 4 | Ligar o Pages | Workflow pronto em 10/11/2026; ligar o Pages é do responsável (#25) |
+| 5 | Proteger a `master` | Feito em 10/11/2026 (#26) |
 | 6 | API de reserva | Issue (#27) |

@@ -24,7 +24,7 @@ URL esperada: **https://douglasabnovato.github.io/huntweb-swapi/**
 |---|---|---|
 | `vite.config.js` | `base: '/huntweb-swapi/'` no build e no preview (raiz no `npm run dev` e nos testes) e um plugin que copia `build/index.html` para `build/404.html` | No Pages o site fica em `/huntweb-swapi/`; o `404.html` faz o Pages entregar o app quando alguém abre `/huntweb-swapi/people/1` direto ou dá F5 no detalhe |
 | `src/main.jsx` | `BrowserRouter basename={import.meta.env.BASE_URL}` | As rotas passam a valer dentro de `/huntweb-swapi/` |
-| `ci/github-actions-ci.yml` | Node 22; o build lê a variável de repositório `VITE_SWAPI_URL` (opcional); job `web` gera o artefato e novo job `deploy` publica (só em push na `master`) | Node 20 saiu de suporte em abr/2026; publicação automática; troca de API sem mexer no código |
+| `.github/workflows/ci.yml` (antes `ci/github-actions-ci.yml`) | Node 22; o build lê a variável de repositório `VITE_SWAPI_URL` (opcional); o job `raiz` gera o artefato e novo job `deploy` publica (só em push na `master`) | Node 20 saiu de suporte em abr/2026; publicação automática; troca de API sem mexer no código |
 | `.env.example` e `README.md` | Aviso de que outra API só serve se tiver o mesmo formato da swapi.dev; seção "Em produção" | O README sugeria `swapi.info` como troca direta, o que não é garantido (ver abaixo) |
 
 Validação feita antes da entrega (sandbox, Node 22):
@@ -71,6 +71,8 @@ Validação feita antes da entrega (sandbox, Node 22):
 
 ### Etapa 3 · Subir para o GitHub
 
+> Atualização de 10/11/2026: o código e o workflow já estão no repositório (`.github/workflows/ci.yml`), e a `master` só recebe mudanças por PR. Resta a etapa 2 (ligar o Pages) e o responsável mesclar o PR da sprint na `master`. Os passos abaixo ficam como histórico.
+
 1. Remover os arquivos substituídos:
    ```bash
    git rm public/index.html src/App.js src/routes.js src/services/api.js src/components/Header/index.js src/components/Loader/index.js src/pages/main/index.js src/pages/persona/index.js
@@ -83,7 +85,7 @@ Validação feita antes da entrega (sandbox, Node 22):
 4. `git add -A`
 5. `git commit -m "chore: deploy no GitHub Pages (base /huntweb-swapi/, 404.html, workflow com publicação)"`
 6. `git push origin master`
-7. Aba **Actions**: o workflow "CI" precisa ficar verde nos jobs `web` e `deploy`.
+7. Aba **Actions**: o workflow "CI" precisa ficar verde nos jobs `raiz` e `deploy`.
 
 ### Etapa 4 · Conferir no ar
 

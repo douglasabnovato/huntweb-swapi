@@ -71,6 +71,8 @@ Validação feita antes da entrega (sandbox, Node 22):
 
 ### Etapa 3 · Subir para o GitHub
 
+> Atualização de 10/11/2026: o código e o workflow já estão no repositório (`.github/workflows/ci.yml`), e a `master` só recebe mudanças por PR. Resta a etapa 2 (ligar o Pages) e o responsável mesclar o PR da sprint na `master`. Os passos abaixo ficam como histórico.
+
 1. Remover os arquivos substituídos:
    ```bash
    git rm public/index.html src/App.js src/routes.js src/services/api.js src/components/Header/index.js src/components/Loader/index.js src/pages/main/index.js src/pages/persona/index.js
@@ -83,7 +85,7 @@ Validação feita antes da entrega (sandbox, Node 22):
 4. `git add -A`
 5. `git commit -m "chore: deploy no GitHub Pages (base /huntweb-swapi/, 404.html, workflow com publicação)"`
 6. `git push origin master`
-7. Aba **Actions**: o workflow "CI" precisa ficar verde nos jobs `web` e `deploy`.
+7. Aba **Actions**: o workflow "CI" precisa ficar verde nos jobs `raiz` e `deploy`.
 
 ### Etapa 4 · Conferir no ar
 

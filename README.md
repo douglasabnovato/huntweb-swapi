@@ -12,7 +12,10 @@
 
 Sem site publicado: o GitHub Pages não está ligado, e `douglasabnovato.github.io/huntweb-swapi/` dá 404 em 06/11/2026 ([#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25)). Para ver o projeto, rode localmente.
 
+Critérios do MVP (N1): 10 de 10 aplicáveis atendidos em 10/11/2026 ([docs/MVP.md](docs/MVP.md)). A `master` está protegida desde 10/11/2026: só recebe mudanças por PR.
+
 **O que foi feito**
+- `master` protegida pelo ruleset `principal-protegida` e workflow único com publicação no Pages só em push na `master` (10/11/2026).
 - Limite de tempo e mensagens de falha da SWAPI, com testes ([#31](https://github.com/douglasabnovato/huntweb-swapi/pull/31)).
 - "Tentar de novo" no detalhe e filmes do personagem, com testes ([#31](https://github.com/douglasabnovato/huntweb-swapi/pull/31)).
 - Código antigo apagado e CI também na `developer` ([#31](https://github.com/douglasabnovato/huntweb-swapi/pull/31)).
@@ -20,8 +23,7 @@ Sem site publicado: o GitHub Pages não está ligado, e `douglasabnovato.github.
 - Licença MIT ([#21](https://github.com/douglasabnovato/huntweb-swapi/pull/21)) e README sem endereços fora do ar ([#17](https://github.com/douglasabnovato/huntweb-swapi/pull/17)).
 
 **O que queremos fazer**
-- [#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25) Ligar o GitHub Pages e publicar o site (responsável).
-- [#26](https://github.com/douglasabnovato/huntweb-swapi/issues/26) Proteger a `master` com PR e CI obrigatórios (responsável).
+- [#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25) Ligar o GitHub Pages (Settings → Pages → GitHub Actions); o workflow já está pronto (responsável).
 - [#27](https://github.com/douglasabnovato/huntweb-swapi/issues/27) API de reserva quando a swapi.dev cai.
 - [#28](https://github.com/douglasabnovato/huntweb-swapi/issues/28) Páginas de planetas, espécies e naves.
 - [#29](https://github.com/douglasabnovato/huntweb-swapi/issues/29) Teste de navegador do fluxo buscar, abrir e voltar.
@@ -176,8 +178,7 @@ Uma aplicação web que requisita informações de uma API
 
 ### Próximos passos
 
-- Ligar o GitHub Pages e publicar (responsável)
-- Proteger a `master` com PR e CI obrigatórios (responsável)
+- Ligar o GitHub Pages e publicar (responsável); o workflow já está pronto
 - API de reserva quando a swapi.dev cai
 - Páginas de planetas, espécies e naves
 - Teste de navegador e README atualizado

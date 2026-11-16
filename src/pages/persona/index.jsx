@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Loader";
 import PlanetName from "../../components/PlanetName";
 import { fetchPerson, filmTitles } from "../../lib/swapi";
+import useTitle from "../../lib/useTitle";
 import "./styles.css";
 
 const FIELDS = [
@@ -22,6 +23,9 @@ export default function Persona() {
   const [persona, setPersona] = useState(null);
   const [error, setError] = useState(null);
   const [attempt, setAttempt] = useState(0);
+
+  /* Título da aba com o nome do personagem, ou com o estado enquanto não há nome */
+  useTitle(persona ? persona.name : error ? (error.status === 404 ? "Personagem não encontrado" : "Erro ao carregar") : "Carregando personagem");
 
   useEffect(() => {
     const ctrl = new AbortController();

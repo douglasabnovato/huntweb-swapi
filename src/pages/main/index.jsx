@@ -4,6 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import Loader from "../../components/Loader";
 import PlanetName from "../../components/PlanetName";
 import { fetchPeople, idFromUrl } from "../../lib/swapi";
+import useTitle from "../../lib/useTitle";
 import "./styles.css";
 
 export default function Main() {
@@ -14,6 +15,12 @@ export default function Main() {
   const [data, setData] = useState(null);
   const [error, setError] = useState("");
   const [attempt, setAttempt] = useState(0);
+
+  /* O campo acompanha a URL: voltar no navegador para outra busca (ou para a lista completa) atualiza o texto */
+  useEffect(() => { setTerm(search); }, [search]);
+
+  /* Título da aba diz o que a página mostra (WCAG 2.4.2) */
+  useTitle(search ? `Busca: ${search}` : "Personagens");
 
   useEffect(() => {
     const ctrl = new AbortController();

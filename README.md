@@ -18,7 +18,7 @@
 
 ## Estado e próximos passos (ciclo de 16/11/2026)
 
-Critérios do MVP (N1): 10 de 10 aplicáveis atendidos em 16/11/2026, com evidência em [docs/MVP.md](docs/MVP.md). A `master` está protegida: só recebe mudanças por PR, com o job `raiz` do CI verde.
+Critérios do MVP (N1): 9 de 10 aplicáveis atendidos em 16/11/2026 (o critério 9 fica em "Parcial" até o merge do #36), com evidência em [docs/MVP.md](docs/MVP.md). A `master` está protegida: só recebe mudanças por PR, com o job `raiz` do CI verde.
 
 Sem site publicado: `https://douglasabnovato.github.io/huntweb-swapi/` respondeu 404 em 16/11/2026, porque o GitHub Pages ainda não foi ligado ([#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25)). O workflow de publicação já está pronto.
 

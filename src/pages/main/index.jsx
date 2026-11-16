@@ -63,7 +63,8 @@ export default function Main() {
           <h2>{persona.name}</h2>
           <p><strong>Planeta natal: </strong><PlanetName url={persona.homeworld} /></p>
           <p><strong>Ano de nascimento: </strong>{persona.birth_year}</p>
-          <Link to={`/people/${idFromUrl(persona.url)}`} aria-label={`Ver detalhes de ${persona.name}`}>Acessar</Link>
+          {/* Nome acessível começa pelo texto visível (WCAG 2.5.3); o resto só o leitor de tela lê */}
+          <Link to={`/people/${idFromUrl(persona.url)}`}>Acessar<span className="sr-only"> os detalhes de {persona.name}</span></Link>
         </article>
       ))}
       {data && data.results.length > 0 && (

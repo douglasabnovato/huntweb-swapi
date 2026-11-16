@@ -82,7 +82,7 @@ describe("lista", () => {
     expect(await screen.findByRole("heading", { name: "Luke Skywalker" })).toBeTruthy();
     expect(await screen.findByText("Tatooine")).toBeTruthy();
     expect(await screen.findByText("Eriadu")).toBeTruthy();
-    expect(screen.getByRole("link", { name: "Ver detalhes de Wilhuff Tarkin" }).getAttribute("href")).toBe("/people/12");
+    expect(screen.getByRole("link", { name: "Acessar os detalhes de Wilhuff Tarkin" }).getAttribute("href")).toBe("/people/12");
     expect(screen.getByRole("button", { name: "Anterior" }).disabled).toBe(true);
     await userEvent.click(screen.getByRole("button", { name: "Próximo" }));
     expect(await screen.findByRole("heading", { name: "Chewbacca" })).toBeTruthy();

@@ -147,9 +147,9 @@ describe("título da aba e campo de busca", () => {
     expect(document.title).toBe("Página não encontrada · Huntweb SWAPI");
   });
 
-  it("o campo de busca acompanha a URL ao sair da busca (antes guardava o termo antigo)", async () => {
+  it("o campo de busca acompanha a URL ao sair da busca pelo logotipo (antes guardava o termo antigo; o voltar do navegador está no e2e)", async () => {
     handler = (u) => [200, { count: 1, next: null, previous: null, results: [person(1, u.searchParams.get("search") ? "Luke Skywalker" : "C-3PO")] }];
-    render(<MemoryRouter initialEntries={["/", "/?q=luke"]} initialIndex={1}><App /></MemoryRouter>);
+    renderAt("/?q=luke");
     await screen.findByRole("heading", { name: "Luke Skywalker" });
     expect(screen.getByLabelText(/Buscar personagem/).value).toBe("luke");
     await userEvent.click(screen.getByRole("link", { name: /ir para a lista de personagens/ }));

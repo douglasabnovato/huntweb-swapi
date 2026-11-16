@@ -46,21 +46,27 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
   await expect(page).toHaveTitle("Personagens · Huntweb SWAPI");
   await semViolacoes(page);
 
-  /* Busca: digitar e Enter */
+  /* Só teclado desde o topo: Tab (logotipo), Tab (campo de busca), digitar e Enter */
   const campo = page.getByLabel("Buscar personagem pelo nome");
-  await campo.fill("luke");
-  await campo.press("Enter");
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("link", { name: /ir para a lista de personagens/ })).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(campo).toBeFocused();
+  await page.keyboard.type("luke");
+  await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\?q=luke$/);
   await expect(page.getByRole("heading", { level: 2 })).toHaveText(["Luke Skywalker"]);
   await expect(page).toHaveTitle("Busca: luke · Huntweb SWAPI");
 
-  /* Teclado: Tab do botão Buscar até o link do personagem, com foco visível, e Enter */
-  await page.getByRole("button", { name: "Buscar" }).focus();
+  /* O foco segue no campo: Tab (Buscar), Tab (link do personagem), com o contorno do app (3px solid), e Enter */
+  await expect(campo).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByRole("button", { name: "Buscar" })).toBeFocused();
   await page.keyboard.press("Tab");
   const link = page.getByRole("link", { name: "Acessar os detalhes de Luke Skywalker" });
   await expect(link).toBeFocused();
-  const contorno = await link.evaluate((el) => getComputedStyle(el).outlineStyle);
-  expect(contorno).not.toBe("none");
+  const contorno = await link.evaluate((el) => { const c = getComputedStyle(el); return `${c.outlineStyle} ${c.outlineWidth}`; });
+  expect(contorno).toBe("solid 3px");
   await page.keyboard.press("Enter");
 
   await expect(page).toHaveURL(/\/huntweb-swapi\/people\/1$/);
@@ -70,12 +76,28 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
   await expect(page).toHaveTitle("Luke Skywalker · Huntweb SWAPI");
   await semViolacoes(page);
 
-  /* Voltar pelo teclado: a lista volta com a busca no campo e na URL */
-  await page.getByRole("button", { name: "Voltar" }).focus();
+  /* Voltar pelo teclado: Tab até o botão "Voltar" (o link sumiu com a troca de rota) e Enter */
+  const voltar = page.getByRole("button", { name: "Voltar" });
+  for (let i = 0; i < 5; i += 1) {
+    if (await voltar.evaluate((el) => el === document.activeElement)) break;
+    await page.keyboard.press("Tab");
+  }
+  await expect(voltar).toBeFocused();
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\?q=luke$/);
   await expect(campo).toHaveValue("luke");
   await expect(page.getByRole("heading", { level: 2 })).toHaveText(["Luke Skywalker"]);
+
+  /* Voltar do navegador sai da busca: o campo acompanha a URL e fica vazio */
+  await page.goBack();
+  await expect(page).toHaveURL(/\/huntweb-swapi\/$/);
+  await expect(campo).toHaveValue("");
+  await expect(page.getByRole("heading", { name: "Leia Organa" })).toBeVisible();
+});
+
+test("o build tem o 404.html igual ao index.html, que o Pages usa para o link direto", async () => {
+  const { readFileSync } = await import("node:fs");
+  expect(readFileSync("build/404.html", "utf8")).toBe(readFileSync("build/index.html", "utf8"));
 });
 
 test("abrir o detalhe direto pelo endereço e ver a página não encontrada", async ({ page }) => {

@@ -9,7 +9,8 @@ export default defineConfig({
   testMatch: "**/*.e2e.js",
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 1 : 0,
+  /* Sem nova tentativa: um teste instável precisa falhar, não ficar verde como "flaky" */
+  retries: 0,
   reporter: process.env.CI ? [["list"], ["html", { open: "never" }]] : "list",
   use: {
     baseURL: `http://localhost:${PORT}/huntweb-swapi/`,
@@ -20,7 +21,8 @@ export default defineConfig({
   webServer: {
     command: `npm run build && npm run preview -- --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/huntweb-swapi/`,
-    reuseExistingServer: !process.env.CI,
+    /* Sempre um build novo: reaproveitar a porta podia testar um build antigo ou de outro projeto */
+    reuseExistingServer: false,
     timeout: 120_000,
   },
 });

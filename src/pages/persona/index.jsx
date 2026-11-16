@@ -25,7 +25,7 @@ export default function Persona() {
   const [attempt, setAttempt] = useState(0);
 
   /* Título da aba com o nome do personagem, ou com o estado enquanto não há nome */
-  useTitle(persona ? persona.name : error ? (error.status === 404 ? "Personagem não encontrado" : "Erro ao carregar") : "Carregando personagem");
+  useTitle(persona ? persona.name : error ? (error.status === 404 ? "Personagem não encontrado" : "Não foi possível carregar") : "Carregando personagem");
 
   useEffect(() => {
     const ctrl = new AbortController();

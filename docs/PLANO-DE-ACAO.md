@@ -97,7 +97,7 @@ Timebox: 30 min.
 | Ideia | O que levamos para o projeto | Fonte |
 |---|---|---|
 | O Playwright simula a rede com `page.route` e sobe o servidor com `webServer` | O teste de navegador roda sobre `npm run preview` (com a `base` `/huntweb-swapi/`) e a SWAPI simulada, sem depender da swapi.dev no CI | [Playwright: Mock APIs](https://playwright.dev/docs/mock), [Playwright: Web server](https://playwright.dev/docs/test-webserver) |
-| O `@axe-core/playwright` roda o axe na página real do navegador | axe na lista e no detalhe, nos modos claro e escuro | [Playwright: Accessibility testing](https://playwright.dev/docs/accessibility-testing) |
+| O `@axe-core/playwright` roda o axe na página real do navegador | axe na lista, no detalhe e no aviso de erro, no modo claro: o CSS não tem `prefers-color-scheme`, o app não tem tema escuro próprio (tema escuro virou a #39) | [Playwright: Accessibility testing](https://playwright.dev/docs/accessibility-testing) |
 | Cada página precisa de um título que diga o assunto (WCAG 2.4.2) | A aba mostra "Luke Skywalker · Huntweb SWAPI" no detalhe e o termo da busca na lista; numa SPA o título não muda sozinho | [W3C: Understanding Page Titled](https://www.w3.org/WAI/WCAG22/Understanding/page-titled.html) |
 | O Pages publica por workflow próprio quando a origem é "GitHub Actions" | O workflow já está pronto; o passo a passo do responsável fica no `docs/DEPLOY.md` e na #25 | [GitHub Docs: custom workflows com Pages](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages) |
 
@@ -127,7 +127,7 @@ Timebox: 30 min.
 - O job `e2e` instala o Chromium no CI e deixa o CI mais lento (minutos, não segundos).
 
 **Qualidade.**
-- Testes: Vitest (unidade e tela no jsdom) e Playwright (navegador, SWAPI simulada, axe nos modos claro e escuro, teclado).
+- Testes: Vitest (unidade e tela no jsdom) e Playwright (navegador, SWAPI simulada, axe no modo claro, teclado).
 - Acessibilidade: axe sem violações com `wcag2a`, `wcag2aa`, `wcag21a` e `wcag21aa`; Tab até o link do personagem e Enter; foco visível conferido.
 - Segurança: `npm audit` (todas as dependências) e `npm audit --omit=dev` sem alertas; sem segredo nem dado pessoal.
 
@@ -142,4 +142,6 @@ Timebox: 30 min.
 4. Campo de busca que acompanha a URL e título da aba por página, com teste.
 5. README reescrito para a versão atual e `docs/DEPLOY.md` revisto (#30).
 
-**Vira issue.** #25 (responsável), #27, #28 e as novas issues abertas no fim do ciclo.
+**Resultado (16/11/2026).** Tudo o que o ciclo previa entrou no PR #37. O axe no navegador achou um defeito que o jsdom não mostrava: o link "Acessar" tinha `aria-label` diferente do texto visível (WCAG 2.5.3); corrigido. CI do PR verde nos jobs `raiz` e `e2e` (run 43798156159).
+
+**Vira issue.** #25 e #38 (responsável); #27, #28, #39 (tema escuro), #40 (ESLint), #41 (foco ao trocar de rota) e #42 (hipótese com pessoas).

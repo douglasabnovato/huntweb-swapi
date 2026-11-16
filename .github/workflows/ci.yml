@@ -31,9 +31,30 @@ jobs:
         with:
           path: build
 
-  # Publicação: só em push na master e só depois do job raiz verde
+  # Fluxo principal no navegador (Playwright + axe) sobre o build, com a SWAPI simulada
+  e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report
+          path: playwright-report
+          retention-days: 7
+
+  # Publicação: só em push na master e só depois dos jobs raiz e e2e verdes
   deploy:
-    needs: raiz
+    needs: [raiz, e2e]
     if: github.event_name == 'push' && github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     permissions:

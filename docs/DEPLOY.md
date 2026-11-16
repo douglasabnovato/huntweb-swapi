@@ -2,6 +2,8 @@
 
 Plano de ação para publicar a lista de personagens de Star Wars em hospedagem gratuita.
 
+> **Estado em 16/11/2026:** `https://douglasabnovato.github.io/huntweb-swapi/` responde **404**, e `gh api repos/douglasabnovato/huntweb-swapi/pages` responde 404 (Pages desligado). O código e o workflow estão prontos. Falta só o responsável fazer a **Etapa 2** (ligar o Pages, #25) e mesclar o PR da sprint na `master`. A Etapa 4 confere o site no ar.
+
 ## 1. Desafio
 
 Publicar uma SPA em Vite + React com rotas no cliente (`/` e `/people/:id`) que consome a SWAPI pública direto do navegador, sem servidor próprio, com deploy automático e sem custo, e com um plano B caso a SWAPI saia do ar.
@@ -24,7 +26,7 @@ URL esperada: **https://douglasabnovato.github.io/huntweb-swapi/**
 |---|---|---|
 | `vite.config.js` | `base: '/huntweb-swapi/'` no build e no preview (raiz no `npm run dev` e nos testes) e um plugin que copia `build/index.html` para `build/404.html` | No Pages o site fica em `/huntweb-swapi/`; o `404.html` faz o Pages entregar o app quando alguém abre `/huntweb-swapi/people/1` direto ou dá F5 no detalhe |
 | `src/main.jsx` | `BrowserRouter basename={import.meta.env.BASE_URL}` | As rotas passam a valer dentro de `/huntweb-swapi/` |
-| `.github/workflows/ci.yml` (antes `ci/github-actions-ci.yml`) | Node 22; o build lê a variável de repositório `VITE_SWAPI_URL` (opcional); o job `raiz` gera o artefato e novo job `deploy` publica (só em push na `master`) | Node 20 saiu de suporte em abr/2026; publicação automática; troca de API sem mexer no código |
+| `.github/workflows/ci.yml` (antes `ci/github-actions-ci.yml`) | Node 22; o build lê a variável de repositório `VITE_SWAPI_URL` (opcional); o job `raiz` testa e gera o artefato, o job `e2e` roda o Playwright com axe (desde 16/11/2026) e o job `deploy` publica só em push na `master`, depois dos dois verdes | Node 20 saiu de suporte em abr/2026; publicação automática; troca de API sem mexer no código |
 | `.env.example` e `README.md` | Aviso de que outra API só serve se tiver o mesmo formato da swapi.dev; seção "Em produção" | O README sugeria `swapi.info` como troca direta, o que não é garantido (ver abaixo) |
 
 Validação feita antes da entrega (sandbox, Node 22):
@@ -57,15 +59,15 @@ Validação feita antes da entrega (sandbox, Node 22):
 
 ### Etapa 1 · Validar localmente (Git Bash)
 
-1. `cd /c/ambiente-projeto/ser-mvp/huntweb-swapi`
-2. `npm ci` (se reclamar do lockfile, `npm install` e depois `npm ci` de novo)
-3. `npm test` (4 testes)
+1. `git clone https://github.com/douglasabnovato/huntweb-swapi` e `cd huntweb-swapi`
+2. `npm ci`
+3. `npm test` (11 testes no Vitest) e, com o Chromium instalado (`npx playwright install chromium`), `npm run test:e2e` (4 testes no navegador)
 4. `npm run build` (confira que `build/404.html` foi gerado)
 5. `npm run preview` e abrir `http://localhost:4173/huntweb-swapi/`: a lista precisa carregar. Se aparecer "Não foi possível falar com a SWAPI", abra `https://swapi.dev/api/people/1/` no navegador: se ele avisar que o certificado venceu, veja "Decisões pendentes".
 
-### Etapa 2 · Ligar o GitHub Pages (antes do push)
+### Etapa 2 · Ligar o GitHub Pages (responsável, #25)
 
-1. No repositório `huntweb-swapi` no GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+1. Abra `https://github.com/douglasabnovato/huntweb-swapi/settings/pages`. Em **Build and deployment**, no campo **Source**, escolha **GitHub Actions**. Não há botão de salvar: a escolha vale na hora.
 2. Confira em **Settings → Environments → github-pages** que a branch `master` pode publicar (por padrão, a branch padrão do repositório já pode).
 3. Opcional (só se for trocar a API por uma compatível): **Settings → Secrets and variables → Actions → aba Variables → New repository variable**: `VITE_SWAPI_URL` = URL base sem barra final. Sem essa variável, o app usa `https://swapi.dev/api`.
 
@@ -97,4 +99,6 @@ Validação feita antes da entrega (sandbox, Node 22):
 
 ### Etapa 5 · Fechar
 
-1. No GitHub, **About → Website**: colar `https://douglasabnovato.github.io/huntweb-swapi/`.
+1. Se o PR da sprint já foi mesclado antes de ligar o Pages, o job `deploy` daquele push falhou: abra **Actions → CI → último run da `master` → Re-run all jobs**.
+2. Na página inicial do repositório, engrenagem de **About → Website**: colar `https://douglasabnovato.github.io/huntweb-swapi/` → **Save changes**.
+3. Avise no #25 com o código HTTP do link e a data; o agente do próximo ciclo volta o link para o README.

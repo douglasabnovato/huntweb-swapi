@@ -23,7 +23,7 @@ Critérios do MVP (N1): 10 de 10 aplicáveis atendidos em 16/11/2026, com evidê
 Sem site publicado: `https://douglasabnovato.github.io/huntweb-swapi/` respondeu 404 em 16/11/2026, porque o GitHub Pages ainda não foi ligado ([#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25)). O workflow de publicação já está pronto.
 
 **O que foi feito**
-- Teste no navegador (Playwright) do fluxo buscar, abrir o detalhe pelo teclado e voltar, com axe em cada tela, link direto e SWAPI fora do ar; job `e2e` no CI ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
+- Teste no navegador (Playwright) do fluxo buscar, abrir o detalhe e voltar, só pelo teclado, com axe em cada tela, link direto e SWAPI fora do ar; job `e2e` no CI ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
 - O axe achou o link "Acessar" com nome acessível diferente do texto visível (WCAG 2.5.3); corrigido ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
 - Título da aba por página e campo de busca que acompanha a URL ao voltar ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
 - Dependências de desenvolvimento atualizadas: 9 alertas do Dependabot resolvidos ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).

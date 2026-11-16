@@ -61,7 +61,7 @@ Validação feita antes da entrega (sandbox, Node 22):
 
 1. `git clone https://github.com/douglasabnovato/huntweb-swapi` e `cd huntweb-swapi`
 2. `npm ci`
-3. `npm test` (11 testes no Vitest) e, com o Chromium instalado (`npx playwright install chromium`), `npm run test:e2e` (3 testes no navegador)
+3. `npm test` (11 testes no Vitest) e, com o Chromium instalado (`npx playwright install chromium`), `npm run test:e2e` (4 testes no navegador)
 4. `npm run build` (confira que `build/404.html` foi gerado)
 5. `npm run preview` e abrir `http://localhost:4173/huntweb-swapi/`: a lista precisa carregar. Se aparecer "Não foi possível falar com a SWAPI", abra `https://swapi.dev/api/people/1/` no navegador: se ele avisar que o certificado venceu, veja "Decisões pendentes".
 

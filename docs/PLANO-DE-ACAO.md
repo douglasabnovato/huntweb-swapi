@@ -77,7 +77,7 @@ Timebox: 30 min.
 
 ## Ciclo de 16/11/2026
 
-> Branch `feature/2026-11-16` → `developer/sprint-2026-11-12` (o PR #36 para a `master` segue aberto) → `master`. Nível: Estudo (N1). Critérios 5 e 7 não se aplicam.
+> Branch `feature/2026-11-16` → `developer/sprint-2026-11-12` → `master`. O PR #36 da sprint para a `master` segue aberto; pela regra de ciclo curto do `engenharia/processo/fluxo-git.md`, o trabalho entra nele, e não numa sprint de 19/11. Nível: Estudo (N1). Critérios 5 e 7 não se aplicam.
 
 ### Produto
 
@@ -142,6 +142,8 @@ Timebox: 30 min.
 4. Campo de busca que acompanha a URL e título da aba por página, com teste.
 5. README reescrito para a versão atual e `docs/DEPLOY.md` revisto (#30).
 
-**Resultado (16/11/2026).** Tudo o que o ciclo previa entrou no PR #37. O axe no navegador achou um defeito que o jsdom não mostrava: o link "Acessar" tinha `aria-label` diferente do texto visível (WCAG 2.5.3); corrigido. CI do PR verde nos jobs `raiz` e `e2e` (run 43798156159).
+**Resultado (16/11/2026).** Tudo o que o ciclo previa entrou no PR #37. O axe no navegador achou um defeito que o jsdom não mostrava: o link "Acessar" tinha `aria-label` diferente do texto visível (WCAG 2.5.3); corrigido. CI do PR verde nos jobs `raiz` e `e2e` (run 43799127062).
+
+**Revisão independente (16/11/2026).** Um revisor que leu só o diff achou 2 erros, corrigidos no PR: o teste dizia percorrer "só com o teclado", mas usava `fill()` e `focus()`; e a checagem de foco (`outline` diferente de `none`) passava com o contorno padrão do Chromium. Agora o percurso é todo por Tab e Enter, e o teste exige o `3px solid` do app. Das sugestões, entraram: `retries: 0`, servidor sempre novo no teste, checagem do `404.html`, voltar do navegador no e2e e o mesmo texto no título da aba e no `h1` de erro. Ficou com o responsável: revisar o "O que aprendi" do README, que é uma proposta.
 
 **Vira issue.** #25 e #38 (responsável); #27, #28, #39 (tema escuro), #40 (ESLint), #41 (foco ao trocar de rota) e #42 (hipótese com pessoas).

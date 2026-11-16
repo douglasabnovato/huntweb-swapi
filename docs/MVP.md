@@ -1,12 +1,12 @@
 # MVP — huntweb-swapi
 
-> Criado em 02/11/2026. Revisto em 16/11/2026, no ciclo do processo por repositório. Este arquivo é a fonte única do estado. Testado no Windows (Node 24) e no CI (Ubuntu, Node 22). Não houve teste com pessoas nem em aparelho real.
+> Criado em 02/11/2026. Revisto em 16/11/2026, no ciclo do processo por repositório, e de novo às 12h27, com os alertas do Dependabot ligados (critério 9). Este arquivo é a fonte única do estado. Testado no Windows (Node 24) e no CI (Ubuntu, Node 22). Não houve teste com pessoas nem em aparelho real.
 
 **Nível:** Estudo (N1). Os critérios 5 e 7 não se aplicam e saem da conta: 10 critérios.
 
-**Resumo:** 9 de 10 aplicáveis atendidos
+**Resumo:** 10 de 10 aplicáveis atendidos
 
-**Finalizado:** não — o critério 9 fica em "Parcial" até o merge do #36 na `master`, que é do responsável. Depois do merge, conferir os alertas e voltar o critério a "Atende".
+**Finalizado:** sim. Os 10 critérios aplicáveis atendem; o 9 voltou a "Atende" em 16/11/2026, depois do merge do #36 na `master`, com 0 alertas abertos do Dependabot.
 
 **Estado em 16/11/2026:** os 10 critérios aplicáveis atendem. Na revisão deste ciclo, os critérios 3 e 8 estavam marcados "Atende" só com testes no jsdom; voltaram a "Parcial" e passaram a "Atende" com o teste Playwright com axe no CI (PR #37, run 43799127062). O site segue fora do ar até o responsável ligar o Pages (#25); o critério 7, que mediria o site publicado, não se aplica em N1.
 
@@ -22,7 +22,7 @@
 | 6 | Falhas tratadas | Erro, vazio e carregamento têm resposta | Atende: busca vazia, rede caída, SWAPI fora do ar (5xx), tempo esgotado (15 s), personagem inexistente e rota inexistente têm mensagem; lista e detalhe têm "Tentar de novo" | `npm test` (11 testes no Vitest) e o teste "SWAPI fora do ar" no Playwright, run 43799127062 | 16/11/2026 |
 | 7 | Desempenho aceitável | LCP até 2,5 s no celular | Não se aplica (N1) | — | 16/11/2026 |
 | 8 | Acessibilidade básica | axe e teclado | Atende: axe (`wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`) sem violações na lista, no detalhe e no aviso de erro, em largura de desktop; percurso só pelo teclado, com o contorno de foco do app no link (`3px solid`, do `:focus-visible`). O axe achou e o ciclo corrigiu o nome do link "Acessar" (WCAG 2.5.3). Só modo claro: o app não tem tema escuro próprio (#39) | `npm run test:e2e`, run 43799127062 do PR #37: 4 passed | 16/11/2026 |
-| 9 | Segurança e conformidade | Riscos decididos | Parcial até o merge do #36: a correção está na `developer/sprint-2026-11-12`, mas a `master` ainda tem 9 alertas abertos do Dependabot, todos no `package-lock.json` e de desenvolvimento: 2 altos (`vite`, `source-map-js`), 6 médios (4 do `vite`, 2 do `@vitest/mocker`) e 1 baixo (`vite`). Na sprint o lockfile já traz `vite` 8.3.8, `@vitest/mocker` 5.1.0 e `source-map-js` 1.2.2, acima das versões corrigidas (8.3.3, 5.0.3 e 1.2.2). Sem segredo nem dado pessoal (dados de teste fictícios) | `gh api "repos/douglasabnovato/huntweb-swapi/dependabot/alerts?state=open"` em 16/11/2026: 9 (2 altos, 6 médios, 1 baixo); `npm audit` no clone da sprint em 16/11/2026: "found 0 vulnerabilities" | 16/11/2026 |
+| 9 | Segurança e conformidade | Riscos decididos | Atende: o #36 entrou na `master` em 16/11/2026 e os 9 alertas de desenvolvimento (`vite`, `source-map-js`, `@vitest/mocker`) foram resolvidos; 0 alertas abertos e 0 vulnerabilidades de produção. Sem segredo nem dado pessoal (dados de teste fictícios) | `gh api "repos/douglasabnovato/huntweb-swapi/dependabot/alerts?state=open&per_page=100"`, 16/11/2026 12h27: 0 abertos; `npm ci` e `npm audit --omit=dev`, 16/11/2026 12h29: "found 0 vulnerabilities" | 16/11/2026 |
 | 10 | Entrega confiável | CI nos PRs e principal protegida | Atende: ruleset `principal-protegida` ativo com `deletion`, `non_fast_forward`, `pull_request` e `required_status_checks` (`raiz`); workflow `CI` roda nos PRs para `master` e `developer/**`. Exigir também o `e2e` é do responsável (#38) | `gh api repos/douglasabnovato/huntweb-swapi/rules/branches/master` em 16/11/2026 | 16/11/2026 |
 | 11 | Testes dos fluxos críticos | Testes automatizados no CI, sem `skipped` | Atende: 11 testes no Vitest (job `raiz`) e 4 no Playwright (job `e2e`), nenhum pulado | Run 43799127062: "Tests 11 passed (11)" e "4 passed" | 16/11/2026 |
 | 12 | Documentação honesta | Qualquer pessoa roda o projeto | Atende: README reescrito para a versão atual; comandos conferidos contra o `package.json` (`dev`, `test`, `build`, `preview`, `test:e2e`); links do README conferidos com `curl` (dois quebrados saíram); sem link publicado, porque o site dá 404 | `curl` dos links do README em 16/11/2026; `npm ci`, `npm test`, `npm run build` e `npm run test:e2e` numa cópia nova | 16/11/2026 |
@@ -52,3 +52,7 @@ Favoritos, contas, demais recursos da SWAPI (planetas, espécies e naves ficam n
 | 8 | Ligar o Pages | Workflow pronto; ligar é do responsável (#25) |
 | 9 | Exigir o `e2e` no ruleset | Responsável (#38) |
 | 10 | API de reserva | Issue (#27) |
+
+## 5. Histórico
+
+- 16/11/2026, 12h27: depois do merge do #36 na `master`, os alertas do Dependabot caíram de 9 para 0; o critério 9 passou de "Parcial" a "Atende". Resumo: 9 → 10 de 10; Finalizado: não → sim.

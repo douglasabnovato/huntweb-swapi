@@ -82,7 +82,7 @@ describe("lista", () => {
     expect(await screen.findByRole("heading", { name: "Luke Skywalker" })).toBeTruthy();
     expect(await screen.findByText("Tatooine")).toBeTruthy();
     expect(await screen.findByText("Eriadu")).toBeTruthy();
-    expect(screen.getByRole("link", { name: "Ver detalhes de Wilhuff Tarkin" }).getAttribute("href")).toBe("/people/12");
+    expect(screen.getByRole("link", { name: "Acessar os detalhes de Wilhuff Tarkin" }).getAttribute("href")).toBe("/people/12");
     expect(screen.getByRole("button", { name: "Anterior" }).disabled).toBe(true);
     await userEvent.click(screen.getByRole("button", { name: "Próximo" }));
     expect(await screen.findByRole("heading", { name: "Chewbacca" })).toBeTruthy();
@@ -117,6 +117,44 @@ describe("detalhe", () => {
     cleanup();
     renderAt("/people/999");
     expect(await screen.findByRole("heading", { name: "Personagem não encontrado" })).toBeTruthy();
+  });
+});
+
+describe("título da aba e campo de busca", () => {
+  it("o título da aba muda com a página (WCAG 2.4.2)", async () => {
+    handler = (u) => {
+      if (u.pathname.endsWith("/people/1/")) return [200, person(1, "Luke Skywalker")];
+      if (u.pathname.endsWith("/people/")) return [200, { count: 1, next: null, previous: null, results: [person(1, "Luke Skywalker")] }];
+      return [404, {}];
+    };
+    renderAt("/");
+    await screen.findByRole("heading", { name: "Luke Skywalker" });
+    expect(document.title).toBe("Personagens · Huntweb SWAPI");
+    cleanup();
+    renderAt("/?q=luke");
+    await screen.findByRole("heading", { name: "Luke Skywalker" });
+    expect(document.title).toBe("Busca: luke · Huntweb SWAPI");
+    cleanup();
+    renderAt("/people/1");
+    await screen.findByRole("heading", { name: "Luke Skywalker", level: 1 });
+    expect(document.title).toBe("Luke Skywalker · Huntweb SWAPI");
+    cleanup();
+    renderAt("/people/999");
+    await screen.findByRole("heading", { name: "Personagem não encontrado" });
+    expect(document.title).toBe("Personagem não encontrado · Huntweb SWAPI");
+    cleanup();
+    renderAt("/nada-aqui");
+    expect(document.title).toBe("Página não encontrada · Huntweb SWAPI");
+  });
+
+  it("o campo de busca acompanha a URL ao sair da busca pelo logotipo (antes guardava o termo antigo; o voltar do navegador está no e2e)", async () => {
+    handler = (u) => [200, { count: 1, next: null, previous: null, results: [person(1, u.searchParams.get("search") ? "Luke Skywalker" : "C-3PO")] }];
+    renderAt("/?q=luke");
+    await screen.findByRole("heading", { name: "Luke Skywalker" });
+    expect(screen.getByLabelText(/Buscar personagem/).value).toBe("luke");
+    await userEvent.click(screen.getByRole("link", { name: /ir para a lista de personagens/ }));
+    expect(await screen.findByRole("heading", { name: "C-3PO" })).toBeTruthy();
+    expect(screen.getByLabelText(/Buscar personagem/).value).toBe("");
   });
 });
 /* Fim de app.test.jsx */

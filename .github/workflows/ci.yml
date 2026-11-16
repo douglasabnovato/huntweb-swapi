@@ -1,9 +1,10 @@
-# CI: testes e build em PR e push; publicação no GitHub Pages só em push na master, depois do build verde
+# CI: testes e build em PR e push; publicação no GitHub Pages só na master (push ou "Run workflow") e com a variável PAGES_VIA_ACTIONS=true, depois do build verde
 name: CI
 
 on:
   push:
     branches: [master, "developer/**"]
+  workflow_dispatch:
   pull_request:
     branches: [master, "developer/**"]
 
@@ -25,9 +26,9 @@ jobs:
       - run: npm run build
         env:
           VITE_SWAPI_URL: ${{ vars.VITE_SWAPI_URL }}
-      # Artefato do Pages só em push na master
+      # Artefato do Pages só na master (push ou "Run workflow") e com o Pages ligado pelo responsável
       - uses: actions/upload-pages-artifact@v3
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && vars.PAGES_VIA_ACTIONS == 'true'
         with:
           path: build
 
@@ -52,10 +53,10 @@ jobs:
           path: playwright-report
           retention-days: 7
 
-  # Publicação: só em push na master e só depois dos jobs raiz e e2e verdes
+  # Publicação: só na master (push ou "Run workflow"), só com a variável PAGES_VIA_ACTIONS=true (criada pelo responsável ao ligar o Pages) e só depois dos jobs raiz e e2e verdes
   deploy:
     needs: [raiz, e2e]
-    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/master' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') && vars.PAGES_VIA_ACTIONS == 'true'
     runs-on: ubuntu-latest
     permissions:
       pages: write

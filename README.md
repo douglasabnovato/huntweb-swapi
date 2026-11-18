@@ -80,6 +80,7 @@ git clone https://github.com/douglasabnovato/huntweb-swapi
 cd huntweb-swapi
 npm ci
 npm run dev       # http://localhost:5173
+npm run lint      # ESLint (regras do JavaScript e dos hooks do React)
 npm test          # testes no Vitest (jsdom)
 npm run build     # gera build/ com a base /huntweb-swapi/
 npm run preview   # serve o build em http://localhost:4173/huntweb-swapi/
@@ -242,7 +243,7 @@ A URL da API pode ser trocada em `.env` (`VITE_SWAPI_URL`, modelo em `.env.examp
 
 1. Faça um **fork** do projeto.
 2. Crie uma branch com as suas alterações: `git checkout -b minha-feature`
-3. Rode `npm test` e `npm run test:e2e`.
+3. Rode `npm run lint`, `npm test` e `npm run test:e2e`.
 4. Faça o commit contando o que você fez: `git commit -m "feat: minha feature"`
 5. Envie e abra um pull request: `git push origin minha-feature`
 

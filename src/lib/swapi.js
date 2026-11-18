@@ -25,9 +25,9 @@ export async function getJson(url, { signal } = {}) {
   try {
     res = await fetch(url, { signal: withTimeout(signal) });
   } catch (err) {
-    if (err.name === "TimeoutError") throw new Error("A SWAPI demorou demais para responder. Tente de novo.");
+    if (err.name === "TimeoutError") throw new Error("A SWAPI demorou demais para responder. Tente de novo.", { cause: err });
     if (err.name === "AbortError") throw err;
-    throw new Error("Não foi possível falar com a SWAPI. Verifique sua conexão.");
+    throw new Error("Não foi possível falar com a SWAPI. Verifique sua conexão.", { cause: err });
   }
   if (res.status === 404) throw Object.assign(new Error("Não encontrado."), { status: 404 });
   if (!res.ok) throw new Error("A SWAPI está indisponível no momento. Tente de novo.");

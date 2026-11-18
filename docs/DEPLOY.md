@@ -2,7 +2,7 @@
 
 Plano de ação para publicar a lista de personagens de Star Wars em hospedagem gratuita.
 
-> **Estado em 16/11/2026:** `https://douglasabnovato.github.io/huntweb-swapi/` responde **404**, e `gh api repos/douglasabnovato/huntweb-swapi/pages` responde 404 (Pages desligado). O código e o workflow estão prontos. Falta só o responsável fazer a **Etapa 2** (ligar o Pages, #25) e mesclar o PR da sprint na `master`. A Etapa 4 confere o site no ar.
+> **Estado em 18/11/2026:** o Pages está ligado (`gh api repos/douglasabnovato/huntweb-swapi/pages`: `build_type` `workflow`), a variável `PAGES_VIA_ACTIONS` existe, e o último deploy, de 16/11/2026, publicou o commit `51c94e3` da `master`. `https://douglasabnovato.github.io/huntweb-swapi/` responde **200**; a lista, o link direto (`/huntweb-swapi/people/1`) e a página não encontrada abrem (Etapa 4 conferida em 18/11/2026). Falta a Etapa 5: o campo Website do About está vazio (`gh api repos/douglasabnovato/huntweb-swapi --jq .homepage`, 18/11/2026).
 
 ## 1. Desafio
 

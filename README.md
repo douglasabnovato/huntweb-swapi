@@ -14,15 +14,17 @@
   <a href="LICENSE"><img alt="Licença MIT" src="https://img.shields.io/badge/licen%C3%A7a-MIT-green"></a>
 </p>
 
-> **Projeto de estudo (N1).** Nasceu no meu primeiro bootcamp, foi o meu primeiro front-end consumindo uma API e hoje roda em Vite, React 18 e React Router 7, com testes no jsdom e no navegador. O site ainda não está publicado: para ver, rode localmente (seção "Como executar").
+> **Projeto de estudo (N1).** Nasceu no meu primeiro bootcamp, foi o meu primeiro front-end consumindo uma API e hoje roda em Vite, React 18 e React Router 7, com testes no jsdom e no navegador. O site está no ar em [douglasabnovato.github.io/huntweb-swapi](https://douglasabnovato.github.io/huntweb-swapi/), conferido em 18/11/2026; para rodar localmente, veja a seção "Como executar".
 
-## Estado e próximos passos (ciclo de 16/11/2026)
+## Estado e próximos passos (ciclo de 18/11/2026)
 
 Critérios do MVP (N1): 10 de 10 aplicáveis atendidos em 16/11/2026, Finalizado: sim. Os alertas do Dependabot estão ligados, com 0 abertos em 16/11/2026, depois do merge do #36. Evidência em [docs/MVP.md](docs/MVP.md). A `master` está protegida: só recebe mudanças por PR, com o job `raiz` do CI verde.
 
-Sem site publicado: `https://douglasabnovato.github.io/huntweb-swapi/` respondeu 404 em 16/11/2026, porque o GitHub Pages ainda não foi ligado ([#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25)). O workflow de publicação já está pronto.
+Site publicado: [douglasabnovato.github.io/huntweb-swapi](https://douglasabnovato.github.io/huntweb-swapi/). Conferido em 18/11/2026: a lista, o link direto (`/huntweb-swapi/people/1`) e a página não encontrada abrem.
 
 **O que foi feito**
+- ESLint no CI, com as regras dos hooks do React ([#40](https://github.com/douglasabnovato/huntweb-swapi/issues/40)).
+- Foco no título da página a cada troca de rota, para teclado e leitor de tela ([#41](https://github.com/douglasabnovato/huntweb-swapi/issues/41)).
 - Teste no navegador (Playwright) do fluxo buscar, abrir o detalhe e voltar, só pelo teclado, com axe em cada tela, link direto e SWAPI fora do ar; job `e2e` no CI ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
 - O axe achou o link "Acessar" com nome acessível diferente do texto visível (WCAG 2.5.3); corrigido ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
 - Título da aba por página e campo de busca que acompanha a URL ao voltar ([#37](https://github.com/douglasabnovato/huntweb-swapi/pull/37)).
@@ -32,13 +34,7 @@ Sem site publicado: `https://douglasabnovato.github.io/huntweb-swapi/` respondeu
 - Licença MIT ([#21](https://github.com/douglasabnovato/huntweb-swapi/pull/21)).
 
 **O que queremos fazer**
-- [#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25) Ligar o GitHub Pages (responsável).
 - [#38](https://github.com/douglasabnovato/huntweb-swapi/issues/38) Exigir o job `e2e` no ruleset da `master` (responsável).
-- [#27](https://github.com/douglasabnovato/huntweb-swapi/issues/27) API de reserva quando a swapi.dev cai.
-- [#28](https://github.com/douglasabnovato/huntweb-swapi/issues/28) Páginas de planetas, espécies e naves.
-- [#39](https://github.com/douglasabnovato/huntweb-swapi/issues/39) Tema escuro que segue o sistema.
-- [#40](https://github.com/douglasabnovato/huntweb-swapi/issues/40) ESLint no CI.
-- [#41](https://github.com/douglasabnovato/huntweb-swapi/issues/41) Foco no título quando a rota muda.
 - [#42](https://github.com/douglasabnovato/huntweb-swapi/issues/42) Validar a hipótese com 3 pessoas no site publicado.
 
 **Onde está a documentação**
@@ -97,8 +93,8 @@ A URL da API pode ser trocada em `.env` (`VITE_SWAPI_URL`, modelo em `.env.examp
 
 ### Publicação
 
-- Hospedagem prevista: GitHub Pages (gratuito), publicado pelo workflow `CI` a cada push na `master`, depois dos jobs `raiz` e `e2e` verdes.
-- Hoje fora do ar: falta ligar o Pages ([#25](https://github.com/douglasabnovato/huntweb-swapi/issues/25)). Passo a passo em [docs/DEPLOY.md](docs/DEPLOY.md).
+- GitHub Pages (gratuito), publicado pelo workflow `CI` a cada push na `master`, depois dos jobs `raiz` e `e2e` verdes.
+- No ar em https://douglasabnovato.github.io/huntweb-swapi/ (conferido em 18/11/2026). Passo a passo em [docs/DEPLOY.md](docs/DEPLOY.md).
 
 ## 🧠 O que aprendi
 

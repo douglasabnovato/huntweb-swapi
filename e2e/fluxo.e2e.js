@@ -1,4 +1,4 @@
-/* Fluxo principal no navegador: buscar, abrir o detalhe pelo teclado e voltar; link direto; SWAPI fora do ar; axe em cada tela */
+/* Fluxo principal no navegador: buscar, abrir o detalhe pelo teclado e voltar, com o foco no título a cada troca de rota; link direto; SWAPI fora do ar; axe em cada tela */
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -71,12 +71,14 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
 
   await expect(page).toHaveURL(/\/huntweb-swapi\/people\/1$/);
   await expect(page.getByRole("heading", { level: 1, name: "Luke Skywalker" })).toBeVisible();
+  /* A troca de rota leva o foco ao h1 do personagem (o link clicado sumiu da tela) */
+  await expect(page.getByRole("heading", { level: 1, name: "Luke Skywalker" })).toBeFocused();
   await expect(page.getByText("Tatooine")).toBeVisible();
   await expect(page.getByRole("listitem")).toHaveText(["Episódio IV: Uma Nova Esperança (1977)", "Episódio V: O Império Contra-Ataca (1980)"]);
   await expect(page).toHaveTitle("Luke Skywalker · Huntweb SWAPI");
   await semViolacoes(page);
 
-  /* Voltar pelo teclado: Tab até o botão "Voltar" (o link sumiu com a troca de rota) e Enter */
+  /* Voltar pelo teclado: Tab a partir do h1 até o botão "Voltar" e Enter */
   const voltar = page.getByRole("button", { name: "Voltar" });
   for (let i = 0; i < 5; i += 1) {
     if (await voltar.evaluate((el) => el === document.activeElement)) break;
@@ -87,6 +89,9 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
   await expect(page).toHaveURL(/\?q=luke$/);
   await expect(campo).toHaveValue("luke");
   await expect(page.getByRole("heading", { level: 2 })).toHaveText(["Luke Skywalker"]);
+  /* De volta à lista, o foco vai para o título da página */
+  await expect(page.getByRole("heading", { level: 1, name: "Personagens de Star Wars" })).toBeFocused();
+  await semViolacoes(page);
 
   /* Voltar do navegador sai da busca: o campo acompanha a URL e fica vazio */
   await page.goBack();
@@ -105,6 +110,8 @@ test("abrir o detalhe direto pelo endereço e ver a página não encontrada", as
   await page.goto("./people/5");
   await expect(page.getByRole("heading", { level: 1, name: "Leia Organa" })).toBeVisible();
   await expect(page.getByText("Alderaan")).toBeVisible();
+  /* Na primeira carga o foco fica no topo: só a troca de rota move o foco */
+  await expect(page.getByRole("heading", { level: 1, name: "Leia Organa" })).not.toBeFocused();
 
   await page.goto("./people/999");
   await expect(page.getByRole("heading", { name: "Personagem não encontrado" })).toBeVisible();
@@ -114,6 +121,7 @@ test("abrir o detalhe direto pelo endereço e ver a página não encontrada", as
   await expect(page.getByRole("heading", { name: "Página não encontrada" })).toBeVisible();
   await page.getByRole("link", { name: "Voltar para a lista" }).click();
   await expect(page.getByRole("heading", { name: "C-3PO" })).toBeVisible();
+  await expect(page.getByRole("heading", { level: 1, name: "Personagens de Star Wars" })).toBeFocused();
 });
 
 test("SWAPI fora do ar: aviso acessível e nova tentativa", async ({ page }) => {

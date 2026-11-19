@@ -5,6 +5,7 @@ import Loader from "../../components/Loader";
 import PlanetName from "../../components/PlanetName";
 import { fetchPerson, filmTitles } from "../../lib/swapi";
 import useTitle from "../../lib/useTitle";
+import useRouteFocus from "../../lib/routeFocus";
 import "./styles.css";
 
 const FIELDS = [
@@ -27,6 +28,9 @@ export default function Persona() {
   /* Título da aba com o nome do personagem, ou com o estado enquanto não há nome */
   useTitle(persona ? persona.name : error ? (error.status === 404 ? "Personagem não encontrado" : "Não foi possível carregar") : "Carregando personagem");
 
+  /* Ao abrir o detalhe, o foco vai para o h1 assim que ele aparece (nome ou aviso de erro) */
+  const titleRef = useRouteFocus(Boolean(persona || error));
+
   useEffect(() => {
     const ctrl = new AbortController();
     setPersona(null);
@@ -44,7 +48,7 @@ export default function Persona() {
     <div className="persona-info">
       {error ? (
         <>
-          <h1>{error.status === 404 ? "Personagem não encontrado" : "Não foi possível carregar"}</h1>
+          <h1 ref={titleRef} tabIndex={-1}>{error.status === 404 ? "Personagem não encontrado" : "Não foi possível carregar"}</h1>
           <p role="alert">{error.message}</p>
           {error.status !== 404 && (
             <button type="button" onClick={() => setAttempt((a) => a + 1)}>Tentar de novo</button>
@@ -52,7 +56,7 @@ export default function Persona() {
         </>
       ) : !persona ? <Loader label="Carregando personagem…" /> : (
         <>
-          <h1>{persona.name}</h1>
+          <h1 ref={titleRef} tabIndex={-1}>{persona.name}</h1>
           <dl>
             {FIELDS.map(([k, label]) => (
               <div key={k}><dt>{label}</dt><dd>{persona[k]}</dd></div>

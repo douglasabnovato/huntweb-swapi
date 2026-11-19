@@ -1,4 +1,4 @@
-# CI: testes e build em PR e push; publicação no GitHub Pages só na master (push ou "Run workflow") e com a variável PAGES_VIA_ACTIONS=true, depois do build verde
+# CI: lint, testes e build em PR e push; publicação no GitHub Pages só na master (push ou "Run workflow") e com a variável PAGES_VIA_ACTIONS=true, depois do build verde
 name: CI
 
 on:
@@ -22,6 +22,7 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
       - run: npm ci
+      - run: npm run lint
       - run: npm test
       - run: npm run build
         env:

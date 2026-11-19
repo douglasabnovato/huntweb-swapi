@@ -5,6 +5,7 @@ import Loader from "../../components/Loader";
 import PlanetName from "../../components/PlanetName";
 import { fetchPeople, idFromUrl } from "../../lib/swapi";
 import useTitle from "../../lib/useTitle";
+import useRouteFocus from "../../lib/routeFocus";
 import "./styles.css";
 
 export default function Main() {
@@ -21,6 +22,9 @@ export default function Main() {
 
   /* Título da aba diz o que a página mostra (WCAG 2.4.2) */
   useTitle(search ? `Busca: ${search}` : "Personagens");
+
+  /* Ao chegar de outra página (voltar do detalhe), o foco vai para o título */
+  const titleRef = useRouteFocus();
 
   useEffect(() => {
     const ctrl = new AbortController();
@@ -43,7 +47,7 @@ export default function Main() {
 
   return (
     <div className="main-list">
-      <h1 className="page-title">Personagens de Star Wars</h1>
+      <h1 className="page-title" ref={titleRef} tabIndex={-1}>Personagens de Star Wars</h1>
       <form className="search" role="search" onSubmit={handleSearch}>
         <label htmlFor="search" className="sr-only">Buscar personagem pelo nome</label>
         <input id="search" type="search" placeholder="Buscar pelo nome (ex.: Luke)" value={term} onChange={(e) => setTerm(e.target.value)} />

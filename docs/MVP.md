@@ -1,6 +1,6 @@
 # MVP — huntweb-swapi
 
-> Criado em 02/11/2026. Revisto em 16/11/2026, no ciclo do processo por repositório, e de novo às 12h27, com os alertas do Dependabot ligados (critério 9). Revisto em 18/11/2026, com o site no ar, o lint no CI e o foco no título a cada troca de rota. Este arquivo é a fonte única do estado. Testado no Windows (Node 24) e no CI (Ubuntu, Node 22). Não houve teste com pessoas nem em aparelho real.
+> Criado em 02/11/2026. Revisto em 16/11/2026, no ciclo do processo por repositório, e de novo às 12h27, com os alertas do Dependabot ligados (critério 9). Revisto em 18/11/2026, com o site no ar, o lint no CI e o foco no título a cada troca de rota. Revisto em 21/11/2026: o ciclo de 18/11 está na `master` desde 19/11 (PR #49), e o README virou vitrine, com capturas do site. Este arquivo é a fonte única do estado. Testado no Windows (Node 24) e no CI (Ubuntu, Node 22). Não houve teste com pessoas nem em aparelho real.
 
 **Nível:** Estudo (N1). Os critérios 5 e 7 não se aplicam e saem da conta: 10 critérios.
 
@@ -52,10 +52,12 @@ Favoritos, contas, demais recursos da SWAPI (planetas, espécies e naves, #28), 
 | 8 | Ligar o Pages | Ligado pelo responsável; site no ar, conferido em 18/11/2026 (#25) |
 | 9 | Exigir o `e2e` no ruleset | Responsável (#38) |
 | 10 | API de reserva | Fora do MVP em N1 (#27, não planejada) |
-| 11 | ESLint no CI | Feito em 18/11/2026 (#40), falta a `master` |
-| 12 | Foco no título quando a rota muda | Feito em 18/11/2026 (#41), falta a `master` |
+| 11 | ESLint no CI | Feito em 18/11/2026 (#40); na `master` desde 19/11/2026 (PR #49) |
+| 12 | Foco no título quando a rota muda | Feito em 18/11/2026 (#41); na `master` desde 19/11/2026 (PR #49) |
+| 13 | Capturas do README com as telas atuais do site | Feito em 21/11/2026 (#51), falta a `master` |
 
 ## 5. Histórico
 
+- 21/11/2026: README reescrito como vitrine (o que é, "experimente em 30 segundos", telas atuais do site e destaques de engenharia), com capturas novas do site publicado (#51). Conferido no mesmo dia: o site responde 200, o CI da `master` está verde (run do PR #49) e há 0 alertas abertos do Dependabot. Sem mudança de critério: segue 10 de 10; Finalizado: sim.
 - 18/11/2026: site no ar (Pages ligado pelo responsável); lint no CI (#40); foco no título a cada troca de rota (#41); #27, #28 e #39 fechadas como não planejadas em N1. Resumo segue 10 de 10; Finalizado: sim.
 - 16/11/2026, 12h27: depois do merge do #36 na `master`, os alertas do Dependabot caíram de 9 para 0; o critério 9 passou de "Parcial" a "Atende". Resumo: 9 → 10 de 10; Finalizado: não → sim.

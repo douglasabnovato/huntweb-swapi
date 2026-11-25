@@ -1,4 +1,4 @@
-/* Fluxo principal no navegador: buscar, abrir o detalhe pelo teclado e voltar, com o foco no título a cada troca de rota; link direto; SWAPI fora do ar; axe em cada tela */
+/* Fluxo principal no navegador: buscar, abrir o detalhe pelo teclado e voltar, com o foco no título a cada troca de rota; link direto; SWAPI fora do ar; axe e corte lateral em cada tela. Roda na mesa e a 320 px (playwright.config.js) */
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
@@ -32,8 +32,34 @@ async function simularSwapi(page, estado = { fora: false }) {
   return estado;
 }
 
-/* axe com as regras WCAG 2.0 e 2.1, níveis A e AA */
+/* Sem rolagem lateral e sem conteúdo cortado nas bordas (#50). Duas medidas:
+   1. a largura do documento não passa da área visível;
+   2. nenhum elemento visível passa da borda direita nem da esquerda.
+   Não tirar a 2ª: é a única que pega o corte por overflow: hidden (que não muda o scrollWidth)
+   e o corte à esquerda (que não gera rolagem). As mutações da R19 do #57 provaram os dois casos.
+   Ficam de fora o invisível de propósito: visibility: hidden, opacity: 0 e o .sr-only (1 x 1 px) */
+async function semCorteLateral(page) {
+  const { largura, janela, fora } = await page.evaluate(() => {
+    const janela = document.documentElement.clientWidth;
+    const fora = [...document.querySelectorAll("body *")]
+      .filter((e) => {
+        const c = e.getBoundingClientRect();
+        if (c.width <= 1 || c.height <= 1) return false;
+        if (c.right <= janela + 1 && c.left >= -1) return false;
+        const s = getComputedStyle(e);
+        return s.visibility !== "hidden" && s.opacity !== "0";
+      })
+      .slice(0, 5)
+      .map((e) => e.tagName + (e.id ? `#${e.id}` : "") + (e.classList[0] ? `.${e.classList[0]}` : "") + ` (${Math.round(e.getBoundingClientRect().left)} a ${Math.round(e.getBoundingClientRect().right)} px)`);
+    return { largura: document.documentElement.scrollWidth, janela, fora };
+  });
+  expect(largura, "rolagem lateral").toBeLessThanOrEqual(janela);
+  expect(fora, "elementos além das bordas").toEqual([]);
+}
+
+/* axe com as regras WCAG 2.0 e 2.1, níveis A e AA; antes, a medida de corte lateral */
 async function semViolacoes(page) {
+  await semCorteLateral(page);
   const { violations } = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"]).analyze();
   expect(violations.map((v) => `${v.id}: ${v.nodes.length}`)).toEqual([]);
 }
@@ -116,9 +142,11 @@ test("abrir o detalhe direto pelo endereço e ver a página não encontrada", as
   await page.goto("./people/999");
   await expect(page.getByRole("heading", { name: "Personagem não encontrado" })).toBeVisible();
   await expect(page.getByRole("button", { name: "Tentar de novo" })).toHaveCount(0);
+  await semCorteLateral(page);
 
   await page.goto("./nada-aqui");
   await expect(page.getByRole("heading", { name: "Página não encontrada" })).toBeVisible();
+  await semCorteLateral(page);
   await page.getByRole("link", { name: "Voltar para a lista" }).click();
   await expect(page.getByRole("heading", { name: "C-3PO" })).toBeVisible();
   await expect(page.getByRole("heading", { level: 1, name: "Personagens de Star Wars" })).toBeFocused();

@@ -1,4 +1,4 @@
-/* Playwright: fluxo principal no Chromium sobre o build (npm run preview, base /huntweb-swapi/). Só modo claro: o CSS não tem prefers-color-scheme, o app não tem tema escuro próprio */
+/* Playwright: fluxo principal no Chromium sobre o build (npm run preview, base /huntweb-swapi/), na mesa e num celular de 320 px (#50). Só modo claro: o CSS não tem prefers-color-scheme, o app não tem tema escuro próprio */
 import { defineConfig, devices } from "@playwright/test";
 
 /* Porta própria para não colidir com outros projetos na mesma máquina */
@@ -17,7 +17,11 @@ export default defineConfig({
     reducedMotion: "reduce",
     trace: "retain-on-failure",
   },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"], colorScheme: "light" } }],
+  projects: [
+    { name: "chromium", use: { ...devices["Desktop Chrome"], colorScheme: "light" } },
+    /* 320 x 640 px: o menor celular comum e a régua de reflow da WCAG 1.4.10; o Pixel 7 dá o toque e o isMobile */
+    { name: "celular-320", use: { ...devices["Pixel 7"], viewport: { width: 320, height: 640 }, colorScheme: "light" } },
+  ],
   webServer: {
     command: `npm run build && npm run preview -- --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}/huntweb-swapi/`,

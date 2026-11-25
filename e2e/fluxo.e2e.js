@@ -32,24 +32,29 @@ async function simularSwapi(page, estado = { fora: false }) {
   return estado;
 }
 
-/* Sem rolagem lateral e sem conteúdo cortado na borda direita (#50). Duas medidas: a largura do
-   documento não passa da área visível, e nenhum elemento visível passa da borda (um corte por
-   overflow: hidden de um ancestral não muda o scrollWidth, mas a pessoa perde o pedaço) */
+/* Sem rolagem lateral e sem conteúdo cortado nas bordas (#50). Duas medidas:
+   1. a largura do documento não passa da área visível;
+   2. nenhum elemento visível passa da borda direita nem da esquerda.
+   Não tirar a 2ª: é a única que pega o corte por overflow: hidden (que não muda o scrollWidth)
+   e o corte à esquerda (que não gera rolagem). As mutações da R19 do #57 provaram os dois casos.
+   Ficam de fora o invisível de propósito: visibility: hidden, opacity: 0 e o .sr-only (1 x 1 px) */
 async function semCorteLateral(page) {
   const { largura, janela, fora } = await page.evaluate(() => {
     const janela = document.documentElement.clientWidth;
     const fora = [...document.querySelectorAll("body *")]
       .filter((e) => {
         const c = e.getBoundingClientRect();
-        if (c.width === 0 || c.height === 0 || c.right <= janela + 1) return false;
-        return getComputedStyle(e).visibility !== "hidden";
+        if (c.width <= 1 || c.height <= 1) return false;
+        if (c.right <= janela + 1 && c.left >= -1) return false;
+        const s = getComputedStyle(e);
+        return s.visibility !== "hidden" && s.opacity !== "0";
       })
       .slice(0, 5)
-      .map((e) => e.tagName + (e.id ? `#${e.id}` : "") + (e.classList[0] ? `.${e.classList[0]}` : ""));
+      .map((e) => e.tagName + (e.id ? `#${e.id}` : "") + (e.classList[0] ? `.${e.classList[0]}` : "") + ` (${Math.round(e.getBoundingClientRect().left)} a ${Math.round(e.getBoundingClientRect().right)} px)`);
     return { largura: document.documentElement.scrollWidth, janela, fora };
   });
   expect(largura, "rolagem lateral").toBeLessThanOrEqual(janela);
-  expect(fora, "elementos além da borda direita").toEqual([]);
+  expect(fora, "elementos além das bordas").toEqual([]);
 }
 
 /* axe com as regras WCAG 2.0 e 2.1, níveis A e AA; antes, a medida de corte lateral */

@@ -1,7 +1,9 @@
 /* Lista de personagens: cartões, busca e paginação (contraste AA; antes amarelo sobre branco) */
 .main-list { max-width: 700px; margin: 120px auto 40px; padding: 0 20px; }
 .main-list .page-title { font-size: 24px; margin-bottom: 16px; color: #020004; }
-.main-list .search { display: flex; gap: 8px; margin-bottom: 20px; }
+.main-list .search { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+/* Rótulo visível numa linha só, em cima do campo e do botão (#62): quem enxerga sabe o que o campo faz depois de digitar */
+.main-list .search label { flex-basis: 100%; font-size: 16px; font-weight: bold; color: #020004; }
 /* min-width: 0: sem ele, o campo não encolhe abaixo da largura padrão e empurra o "Buscar" para fora dos 320 px (#50) */
 .main-list .search input { flex: 1; min-width: 0; height: 44px; border: 1px solid #767676; border-radius: 5px; padding: 0 12px; font-size: 16px; }
 /* Exemplo da busca com cor própria (#58): 7:1 no branco, sem depender da cor padrão do navegador */

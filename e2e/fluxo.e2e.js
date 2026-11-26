@@ -57,6 +57,13 @@ async function semCorteLateral(page) {
   expect(fora, "elementos além das bordas").toEqual([]);
 }
 
+/* Respiro entre o cabeçalho preto e o cartão do detalhe (#54): no celular o cartão encostava no cabeçalho (0 px).
+   Pede pelo menos 12 px nos 2 projetos; hoje são 16 no celular e 20 na mesa */
+async function cartaoComRespiro(page) {
+  const folga = await page.evaluate(() => document.querySelector(".persona-info").getBoundingClientRect().top - document.querySelector("header").getBoundingClientRect().bottom);
+  expect(folga, "espaço entre o cabeçalho e o cartão do detalhe").toBeGreaterThanOrEqual(12);
+}
+
 /* axe com as regras WCAG 2.0 e 2.1, níveis A e AA; antes, a medida de corte lateral */
 async function semViolacoes(page) {
   await semCorteLateral(page);
@@ -142,6 +149,7 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
   /* A troca de rota leva o foco ao h1 do personagem (o link clicado sumiu da tela) */
   await expect(page.getByRole("heading", { level: 1, name: "Luke Skywalker" })).toBeFocused();
   await expect(page.getByText("Tatooine")).toBeVisible();
+  await cartaoComRespiro(page);
   await expect(page.getByRole("listitem")).toHaveText(["Episódio IV: Uma Nova Esperança (1977)", "Episódio V: O Império Contra-Ataca (1980)"]);
   await expect(page).toHaveTitle("Luke Skywalker · Huntweb SWAPI");
   await semViolacoes(page);
@@ -178,6 +186,7 @@ test("abrir o detalhe direto pelo endereço e ver a página não encontrada", as
   await page.goto("./people/5");
   await expect(page.getByRole("heading", { level: 1, name: "Leia Organa" })).toBeVisible();
   await expect(page.getByText("Alderaan")).toBeVisible();
+  await cartaoComRespiro(page);
   /* Na primeira carga o foco fica no topo: só a troca de rota move o foco */
   await expect(page.getByRole("heading", { level: 1, name: "Leia Organa" })).not.toBeFocused();
 

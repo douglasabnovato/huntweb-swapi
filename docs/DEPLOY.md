@@ -24,7 +24,7 @@ URL esperada: **https://douglasabnovato.github.io/huntweb-swapi/**
 
 | Arquivo | Ajuste | Por quê |
 |---|---|---|
-| `vite.config.js` | `base: '/huntweb-swapi/'` no build e no preview (raiz no `npm run dev` e nos testes) e um plugin que copia `build/index.html` para `build/404.html` | No Pages o site fica em `/huntweb-swapi/`; o `404.html` faz o Pages entregar o app quando alguém abre `/huntweb-swapi/people/1` direto ou dá F5 no detalhe |
+| `vite.config.js` | `base: '/huntweb-swapi/'` no build e no preview (raiz no `npm run dev` e nos testes) e um plugin que copia `build/index.html` para `build/404.html` e para `build/people/<id>.html`, um por personagem (#55) | No Pages o site fica em `/huntweb-swapi/`; o `404.html` faz o Pages entregar o app nos caminhos sem arquivo, e o `people/<id>.html` faz o link direto do personagem responder 200 |
 | `src/main.jsx` | `BrowserRouter basename={import.meta.env.BASE_URL}` | As rotas passam a valer dentro de `/huntweb-swapi/` |
 | `.github/workflows/ci.yml` (antes `ci/github-actions-ci.yml`) | Node 22; o build lê a variável de repositório `VITE_SWAPI_URL` (opcional); o job `raiz` testa e gera o artefato, o job `e2e` roda o Playwright com axe (desde 16/11/2026) e o job `deploy` publica só na `master` (push ou "Run workflow") e só com a variável `PAGES_VIA_ACTIONS=true`, depois dos dois verdes | Node 20 saiu de suporte em abr/2026; publicação automática; troca de API sem mexer no código |
 | `.env.example` e `README.md` | Aviso de que outra API só serve se tiver o mesmo formato da swapi.dev; seção "Em produção" | O README sugeria `swapi.info` como troca direta, o que não é garantido (ver abaixo) |
@@ -44,7 +44,15 @@ Validação feita antes da entrega (sandbox, Node 22):
 ### Limitações do plano gratuito
 
 - GitHub Pages: site público, até 1 GB, cerca de 100 GB de banda por mês; o repositório precisa ser público no plano gratuito.
-- Deep link (`/huntweb-swapi/people/1`) funciona pelo `404.html`: a página abre normalmente, mas o servidor responde com status 404 nesse primeiro carregamento (efeito conhecido do Pages).
+- Link direto de personagem (`/huntweb-swapi/people/1`): até 26/11/2026 abria pelo `404.html`, com a página certa mas com status 404, e a prévia de link (LinkedIn, buscadores) tratava a página como inexistente (#55). Agora o build gera `build/people/<id>.html` para os 82 personagens da SWAPI (do 1 ao 83, sem o 17, que não existe), cópias do `index.html` de 732 bytes cada. O Pages serve `/people/1` a partir de `people/1.html` com status 200 (o mesmo que já faz com `/huntweb-swapi/index`, conferido em 26/11/2026). Id inexistente, como `/people/17` ou `/people/999`, e qualquer outro caminho seguem no `404.html`, com status 404. Vale no site depois do merge na `master`.
+- Opções estudadas para o #55 (26/11/2026):
+  | Opção | Resultado | Por que |
+  |---|---|---|
+  | Pré-gerar uma página por personagem no build | **Escolhida** | Não muda nenhum endereço nem o app; são 82 arquivos pequenos; o id inexistente continua com 404 |
+  | `HashRouter` (`/#/people/1`) | Descartada | Muda os links já divulgados, e a prévia de link ignora o que vem depois do `#` (todo link vira a página inicial) |
+  | Outro host com regra de reescrita, ou renderizar no servidor | Fora do escopo | Troca a hospedagem, decisão do responsável |
+- Com a barra no fim (`/people/1/`), o Pages procura `people/1/index.html`. Como não existe, entrega o `404.html` com status 404, e o app abre normalmente. O app só gera o link sem a barra. Gerar só `people/<id>/index.html` não serve: em 26/11/2026, uma pasta pedida sem a barra (`/huntweb-swapi`) deu 301 para a URL com a barra, e o `/people/1` deixaria de dar 200. Gerar os dois arquivos fica para testar no ar na [#66](https://github.com/douglasabnovato/huntweb-swapi/issues/66).
+- Se a SWAPI ganhar personagens, a lista `PEOPLE_IDS` do `vite.config.js` precisa crescer; o e2e confere os 82 de hoje.
 - A disponibilidade depende da SWAPI, que é um serviço comunitário sem garantia.
 
 ### Segurança e LGPD

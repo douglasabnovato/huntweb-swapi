@@ -74,6 +74,15 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
 
   /* Só teclado desde o topo: Tab (logotipo), Tab (campo de busca), digitar e Enter */
   const campo = page.getByLabel("Buscar personagem pelo nome");
+  /* Rótulo visível (#62): o texto que nomeia o campo aparece na tela, numa linha só, em cima do campo, e não some ao digitar */
+  const rotulo = page.locator("label[for=search]");
+  await expect(rotulo).toHaveText("Buscar personagem pelo nome");
+  const [caixaRotulo, caixaCampo] = [await rotulo.boundingBox(), await campo.boundingBox()];
+  expect(caixaRotulo.width, "rótulo visível, não só para o leitor de tela").toBeGreaterThan(100);
+  const linha = await rotulo.evaluate((el) => parseFloat(getComputedStyle(el).lineHeight) || parseFloat(getComputedStyle(el).fontSize) * 1.15);
+  expect(caixaRotulo.height, "rótulo numa linha só").toBeLessThanOrEqual(linha * 1.5);
+  expect(caixaRotulo.y + caixaRotulo.height, "rótulo em cima do campo").toBeLessThanOrEqual(caixaCampo.y);
+  expect(caixaRotulo.x, "rótulo alinhado à esquerda do campo").toBeCloseTo(caixaCampo.x, 0);
   /* O texto de exemplo cabe inteiro no campo, com o "Luke", nos 2 projetos (#58: a 320 px, "Buscar pelo nome (ex.: Luke)" pedia 209 px e o campo tinha 152).
      Mede como aparece na tela (R19 do QA no #61): põe o exemplo no value com a fonte e o espaço entre letras do ::placeholder,
      compara o scrollWidth com o clientWidth e devolve o campo como estava. Confere também o contraste do exemplo (4,5:1) */
@@ -103,6 +112,7 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
   await page.keyboard.press("Tab");
   await expect(campo).toBeFocused();
   await page.keyboard.type("luke");
+  await expect(rotulo, "o rótulo segue na tela com o campo preenchido").toBeVisible();
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/\?q=luke$/);
   await expect(page.getByRole("heading", { level: 2 })).toHaveText(["Luke Skywalker"]);

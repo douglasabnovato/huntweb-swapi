@@ -181,6 +181,17 @@ test("o build tem o 404.html igual ao index.html, que o Pages usa para o link di
   expect(readFileSync("build/404.html", "utf8")).toBe(readFileSync("build/index.html", "utf8"));
 });
 
+/* #55: o Pages serve /people/<id> a partir de people/<id>.html com status 200; sem o arquivo, entrega o 404.html com status 404 */
+test("o build tem uma página por personagem para o link direto responder 200, e nenhuma para id inexistente", async () => {
+  const { readFileSync, readdirSync } = await import("node:fs");
+  const index = readFileSync("build/index.html", "utf8");
+  const paginas = readdirSync("build/people").sort((a, b) => parseInt(a) - parseInt(b));
+  const esperadas = Array.from({ length: 83 }, (_, i) => `${i + 1}.html`).filter((p) => p !== "17.html");
+  /* 82 personagens, como o count da SWAPI: do 1 ao 83, sem o 17 */
+  expect(paginas).toEqual(esperadas);
+  for (const p of paginas) expect(readFileSync(`build/people/${p}`, "utf8")).toBe(index);
+});
+
 test("abrir o detalhe direto pelo endereço e ver a página não encontrada", async ({ page }) => {
   await simularSwapi(page);
   await page.goto("./people/5");

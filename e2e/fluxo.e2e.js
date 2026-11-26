@@ -74,6 +74,30 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
 
   /* Só teclado desde o topo: Tab (logotipo), Tab (campo de busca), digitar e Enter */
   const campo = page.getByLabel("Buscar personagem pelo nome");
+  /* O texto de exemplo cabe inteiro no campo, com o "Luke", nos 2 projetos (#58: a 320 px, "Buscar pelo nome (ex.: Luke)" pedia 209 px e o campo tinha 152).
+     Mede como aparece na tela (R19 do QA no #61): põe o exemplo no value com a fonte e o espaço entre letras do ::placeholder,
+     compara o scrollWidth com o clientWidth e devolve o campo como estava. Confere também o contraste do exemplo (4,5:1) */
+  const exemplo = await campo.evaluate((el) => {
+    const antes = el.value;
+    const ph = getComputedStyle(el, "::placeholder");
+    el.value = el.placeholder;
+    el.style.font = ph.font;
+    el.style.letterSpacing = ph.letterSpacing;
+    const r = { texto: el.placeholder, largura: el.scrollWidth, cabe: el.clientWidth, cor: ph.color, fundo: getComputedStyle(el).backgroundColor };
+    el.style.font = "";
+    el.style.letterSpacing = "";
+    el.value = antes;
+    return r;
+  });
+  expect(exemplo.texto, "o exemplo cita um nome").toContain("Luke");
+  expect(exemplo.largura, `o exemplo "${exemplo.texto}" cabe no campo`).toBeLessThanOrEqual(exemplo.cabe);
+  const lum = (cor) => {
+    const [r, g, b] = cor.match(/[\d.]+/g).slice(0, 3).map((v) => { const s = Number(v) / 255; return s <= 0.03928 ? s / 12.92 : ((s + 0.055) / 1.055) ** 2.4; });
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  };
+  const fundo = /rgba\(0, 0, 0, 0\)|transparent/.test(exemplo.fundo) ? "rgb(255, 255, 255)" : exemplo.fundo;
+  const [l1, l2] = [lum(exemplo.cor), lum(fundo)].sort((a, b) => b - a);
+  expect((l1 + 0.05) / (l2 + 0.05), `contraste do exemplo (${exemplo.cor} sobre ${fundo})`).toBeGreaterThanOrEqual(4.5);
   await page.keyboard.press("Tab");
   await expect(page.getByRole("link", { name: /ir para a lista de personagens/ })).toBeFocused();
   await page.keyboard.press("Tab");

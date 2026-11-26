@@ -51,6 +51,7 @@ Validação feita antes da entrega (sandbox, Node 22):
   | Pré-gerar uma página por personagem no build | **Escolhida** | Não muda nenhum endereço nem o app; são 82 arquivos pequenos; o id inexistente continua com 404 |
   | `HashRouter` (`/#/people/1`) | Descartada | Muda os links já divulgados, e a prévia de link ignora o que vem depois do `#` (todo link vira a página inicial) |
   | Outro host com regra de reescrita, ou renderizar no servidor | Fora do escopo | Troca a hospedagem, decisão do responsável |
+- Com a barra no fim (`/people/1/`), o Pages procura `people/1/index.html`. Como não existe, entrega o `404.html` com status 404, e o app abre normalmente. O app só gera o link sem a barra. Gerar só `people/<id>/index.html` não serve: em 26/11/2026, uma pasta pedida sem a barra (`/huntweb-swapi`) deu 301 para a URL com a barra, e o `/people/1` deixaria de dar 200. Gerar os dois arquivos fica para testar no ar na [#66](https://github.com/douglasabnovato/huntweb-swapi/issues/66).
 - Se a SWAPI ganhar personagens, a lista `PEOPLE_IDS` do `vite.config.js` precisa crescer; o e2e confere os 82 de hoje.
 - A disponibilidade depende da SWAPI, que é um serviço comunitário sem garantia.
 

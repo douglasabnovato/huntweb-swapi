@@ -50,7 +50,7 @@ export default function Main() {
       <h1 className="page-title" ref={titleRef} tabIndex={-1}>Personagens de Star Wars</h1>
       <form className="search" role="search" onSubmit={handleSearch}>
         <label htmlFor="search" className="sr-only">Buscar personagem pelo nome</label>
-        <input id="search" type="search" placeholder="Buscar pelo nome (ex.: Luke)" value={term} onChange={(e) => setTerm(e.target.value)} />
+        <input id="search" type="search" placeholder="Nome (ex.: Luke)" value={term} onChange={(e) => setTerm(e.target.value)} />
         <button type="submit">Buscar</button>
       </form>
 

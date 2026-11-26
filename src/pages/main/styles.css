@@ -4,6 +4,8 @@
 .main-list .search { display: flex; gap: 8px; margin-bottom: 20px; }
 /* min-width: 0: sem ele, o campo não encolhe abaixo da largura padrão e empurra o "Buscar" para fora dos 320 px (#50) */
 .main-list .search input { flex: 1; min-width: 0; height: 44px; border: 1px solid #767676; border-radius: 5px; padding: 0 12px; font-size: 16px; }
+/* Exemplo da busca com cor própria (#58): 7:1 no branco, sem depender da cor padrão do navegador */
+.main-list .search input::placeholder { color: #595959; opacity: 1; }
 .main-list .search button,
 .main-list .actions button,
 .main-list .error button { padding: 10px 16px; border-radius: 5px; border: 0; background: #34343b; color: #ffe81f; font-size: 16px; font-weight: bold; cursor: pointer; }

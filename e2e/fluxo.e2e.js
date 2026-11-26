@@ -74,6 +74,15 @@ test("buscar, abrir o detalhe pelo teclado e voltar com a busca mantida", async 
 
   /* Só teclado desde o topo: Tab (logotipo), Tab (campo de busca), digitar e Enter */
   const campo = page.getByLabel("Buscar personagem pelo nome");
+  /* O texto de exemplo cabe inteiro no campo, com o "Luke", nos 2 projetos (#58: a 320 px, "Buscar pelo nome (ex.: Luke)" pedia 209 px e o campo tinha 152) */
+  const exemplo = await campo.evaluate((el) => {
+    const c = getComputedStyle(el);
+    const ctx = document.createElement("canvas").getContext("2d");
+    ctx.font = c.font;
+    return { texto: el.placeholder, precisa: ctx.measureText(el.placeholder).width, cabe: el.clientWidth - parseFloat(c.paddingLeft) - parseFloat(c.paddingRight) };
+  });
+  expect(exemplo.texto, "o exemplo cita um nome").toContain("Luke");
+  expect(exemplo.precisa, `o exemplo "${exemplo.texto}" cabe no campo`).toBeLessThanOrEqual(exemplo.cabe);
   await page.keyboard.press("Tab");
   await expect(page.getByRole("link", { name: /ir para a lista de personagens/ })).toBeFocused();
   await page.keyboard.press("Tab");
